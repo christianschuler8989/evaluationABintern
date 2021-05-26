@@ -11,7 +11,7 @@ var TestConfig = {
   "LoopByDefault": true,
   "EnableABLoop": true,
   "EnableOnlineSubmission": true,
-  "BeaqleServiceURL": "http://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
+  "BeaqleServiceURL": "https://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
   "SupervisorContact": "",
   "RandomizeTestOrder": false,
   "MaxTestsPerRun": 3,
