@@ -14,7 +14,7 @@ var TestConfig = {
   "BeaqleServiceURL": "https://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
   "SupervisorContact": "",
   "RandomizeTestOrder": false,
-  "MaxTestsPerRun": 11,
+  "MaxTestsPerRun": 10,
   "RequireMaxRating": false,
   "AudioRoot": "",
   "Testsets": [
@@ -84,16 +84,6 @@ var TestConfig = {
         "Reference": "audio/007/reference.wav",
         "1": "audio/007/0_TTS-corrected-espeak.wav",
         "2": "audio/007/1_TTS-corrected-sequitur.wav",
-        }
-    },
-
-    {
-      "Name": "Example 8",
-      "TestID": "id1_8",
-      "Files": {
-        "Reference": "audio/008/reference.wav",
-        "1": "audio/008/0_TTS-corrected-espeak.wav",
-        "2": "audio/008/1_TTS-corrected-sequitur.wav",
         }
     },
 
