@@ -1,6 +1,6 @@
-<?php
+<?php	
     // BeaqleJS web service
-    //
+    // 
     // Receives a JSON fromatted data structure containing listening test results and writes them to a text file.
 
     //error_reporting(-1);
@@ -12,7 +12,7 @@
     // <---
 
     // bypass any (proxy) caching
-    header("Cache-Control: no-cache, must-revalidate");
+    header("Cache-Control: no-cache, must-revalidate");    
 
     // check if data was received by a POST request
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -24,9 +24,9 @@
 
         // check if necessary data is available
         if (isset($_POST['testresults']) && (strlen($_POST['testresults'])<1024*64)) { // maximum allowed upload size is 64kB
-
+        
             $testresults = $_POST['testresults'];
-
+            
             // generate filename
             if (isset($_POST['username']) && (strlen($_POST['username'])<128)) {
                 $username = $_POST['username'];
@@ -40,29 +40,29 @@
             }
        	    $filename = date("Ymd-Hi")."_".$username;
 
-            // add a random suffix
+            // add a random suffix 
   	        $filenumber = mt_rand();
             while (file_exists($results_prefix.$filename."_".dechex($filenumber).".txt")) {
                 $filenumber++;
             }
         	$filename_data = $filename."_".dechex($filenumber).".txt";
-
+        	
             // write the file
             $succ = file_put_contents($results_prefix.$filename_data, print_r($testresults, TRUE));
 
             if ($succ===false) {
                 $return['error'] = true;
-                $return['message'] = "Error writing data to file! (".$results_prefix.$filename_data.")";
+                $return['message'] = "Error writing data to file! (".$results_prefix.$filename_data.")";    
             } else {
                 $return['error'] = false;
-                $return['message'] = "Data is saved!";
+                $return['message'] = "Data is saved!";    
             }
         } else {
             $return['error'] = true;
             $return['message'] = "Invalid data sent!";
         }
-
-        // return
+        
+        // return 
         echo json_encode($return);
 
     } else {

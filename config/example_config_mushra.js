@@ -1,6 +1,6 @@
 // configure the test here
 var TestConfig = {
-  "TestName": "Mushra Test for TTS outputs",
+  "TestName": "Mushra Demo Test",
   "RateScalePng": "img/scale_abs.png",
   "RateScaleBgPng": "img/scale_abs_background.png",
   "RateMinValue": 0,
@@ -10,111 +10,49 @@ var TestConfig = {
   "ShowResults": false,
   "LoopByDefault": true,
   "EnableABLoop": true,
-  "EnableOnlineSubmission": true,
-  "BeaqleServiceURL": "https://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
+  "EnableOnlineSubmission": false,
+  "BeaqleServiceURL": "",
+  //"BeaqleServiceURL": "/web_service/beaqleJS_Service.php",
   "SupervisorContact": "",
   "RandomizeTestOrder": false,
-  "MaxTestsPerRun": 10,
+  "MaxTestsPerRun": 3,
   "RequireMaxRating": false,
   "AudioRoot": "",
   "Testsets": [
     //
     {
-      "Name": "Example 1",
-      "TestID": "id1_1",
+      "Name": "Christian_test_1",
+      "TestID": "christian_1_a=a",
       "Files": {
-            "Reference": "audio/001/reference.wav",
-            "1": "audio/001/0_TTS-corrected-espeak.wav",
-            "2": "audio/001/1_TTS-corrected-sequitur.wav",
-        }
-    },
-    {
-      "Name": "Example 2",
-      "TestID": "id1_2",
+        "Reference": "video/merkel00.mp4",
+        "1": "video/merkel01.mp4",
+        "2": "video/merkel02.mp4",
+        "3": "video/merkel03.mp4",
+        "4": "video/merkel04.mp4",
+      }
+    },{
+      "Name": "Christian_test_2",
+      "TestID": "christian_1_a=b",
       "Files": {
-        "Reference": "audio/002/reference.wav",
-        "1": "audio/002/0_TTS-corrected-espeak.wav",
-        "2": "audio/002/1_TTS-corrected-sequitur.wav",
-        }
-    },
-    {
-      "Name": "Example 3",
-      "TestID": "id1_3",
+        "Reference": "video/mindPizzaEnglish.mp4",
+        "1": "video/mindPizzaGerman.mp4",
+      }
+    },{
+      "Name": "Christian_test_3",
+      "TestID": "christian_1_a=c",
       "Files": {
-        "Reference": "audio/003/reference.wav",
-        "1": "audio/003/0_TTS-corrected-espeak.wav",
-        "2": "audio/003/1_TTS-corrected-sequitur.wav",
-        }
-    },
-    //
-    {
-      "Name": "Example 4",
-      "TestID": "id1_4",
+        "Reference": "video/vitaPrinceItalian.mp4",
+        "1": "video/vitaPrinceGerman.mp4",
+      }
+    },{
+      "Name": "Christian_test_4",
+      "TestID": "christian_1_a=d",
       "Files": {
-        "Reference": "audio/004/reference.wav",
-        "1": "audio/004/0_TTS-corrected-espeak.wav",
-        "2": "audio/004/1_TTS-corrected-sequitur.wav",
-        }
-    },
-
-    {
-      "Name": "Example 5",
-      "TestID": "id1_5",
-      "Files": {
-        "Reference": "audio/005/reference.wav",
-        "1": "audio/005/0_TTS-corrected-espeak.wav",
-        "2": "audio/005/1_TTS-corrected-sequitur.wav",
-        }
-    },
-
-    {
-      "Name": "Example 6",
-      "TestID": "id1_6",
-      "Files": {
-        "Reference": "audio/006/reference.wav",
-        "1": "audio/006/0_TTS-corrected-espeak.wav",
-        "2": "audio/006/1_TTS-corrected-sequitur.wav",
-        }
-    },
-
-    {
-      "Name": "Example 7",
-      "TestID": "id1_7",
-      "Files": {
-        "Reference": "audio/007/reference.wav",
-        "1": "audio/007/0_TTS-corrected-espeak.wav",
-        "2": "audio/007/1_TTS-corrected-sequitur.wav",
-        }
-    },
-
-    {
-      "Name": "Example 9",
-      "TestID": "id1_9",
-      "Files": {
-        "Reference": "audio/009/reference.wav",
-        "1": "audio/009/0_TTS-corrected-espeak.wav",
-        "2": "audio/009/1_TTS-corrected-sequitur.wav",
-        }
-    },
-
-    {
-      "Name": "Example 10",
-      "TestID": "id1_10",
-      "Files": {
-        "Reference": "audio/010/reference.wav",
-        "1": "audio/010/0_TTS-corrected-espeak.wav",
-        "2": "audio/010/1_TTS-corrected-sequitur.wav",
-        }
-    },
-
-    {
-      "Name": "Example 11",
-      "TestID": "id1_11",
-      "Files": {
-        "Reference": "audio/011/reference.wav",
-        "1": "audio/011/0_TTS-corrected-espeak.wav",
-        "2": "audio/011/1_TTS-corrected-sequitur.wav",
-        }
-    },
+        "Reference": "video/soundTest01.mp4",
+        "1": "video/soundTest02.mp4",
+        "2": "video/soundTest03.mp4",
+        "3": "video/soundTest04.mp4",
+      }
+    }
   ]
 }

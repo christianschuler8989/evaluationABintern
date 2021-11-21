@@ -6,27 +6,19 @@ var TestConfig = {
   "ShowResults": false,
   "EnableABLoop": true,
   "EnableOnlineSubmission": false,
+  //"BeaqleServiceURL": "/web_service/beaqleJS_Service.php",
   "BeaqleServiceURL": "",
-  "SupervisorContact": "", 
+  "SupervisorContact": "",
   "AudioRoot": "",
   "Testsets": [
     //    
     {
-      "Name": "Schubert",
-      "TestID": "id1",
+      "Name": "Christians_Test",
+      "TestID": "id1_1",
       "Files": {
-        "A": "audio/schubert_ref.wav",
-        "B": "audio/schubert_2.wav",
-      }
-    },
-    //    
-    {
-      "Name": "Castanets",
-      "TestID": "id2",
-      "Files": {
-        "A": "audio/castanets_ref.wav",
-        "B": "audio/castanets_2.wav",
-      }
+            "A": "video/merkel00.mp4",
+            "B": "video/merkel01.mp4",
+        }
     },
   ]
 }

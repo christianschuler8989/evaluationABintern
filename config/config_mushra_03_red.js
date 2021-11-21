@@ -1,0 +1,481 @@
+// configure the test here
+var TestConfig = {
+  "TestName": "Mushra Red Test",
+  "RateScalePng": "img/scale_abs.png",
+  "RateScaleBgPng": "img/scale_abs_background.png",
+  "RateMinValue": 0,
+  "RateMaxValue": 100,
+  "RateDefaultValue":0,
+  "ShowFileIDs": false,
+  "ShowResults": false,
+  "LoopByDefault": true,
+  "EnableABLoop": true,
+  "EnableOnlineSubmission": false,
+  "BeaqleServiceURL": "",
+  //"BeaqleServiceURL": "/web_service/beaqleJS_Service.php",
+  "SupervisorContact": "",
+  "RandomizeTestOrder": true,
+  "AnchorsNumber": 4,
+  "MaxTestsPerRun": 10,
+  "RequireMaxRating": false,
+  "AudioRoot": "",
+  "Testsets": [
+    // "GREEN" testsets that serve as anchors
+    {
+      "Name": "001",
+      "TestID": "anfang_a_aL_big",
+      "Files":
+      {
+        "Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
+        "1": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft2_0.90cut.mp4",
+        "2": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+        "3": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft6_0.90cut.mp4",
+        "4": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+        "5": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
+      }
+    },
+    {
+     	"Name": "016",
+     	"TestID": "euro_p_aR_big",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Europaeisch_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Europaeisch_p_001_shiftRight2_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Europaeisch_p_001_shiftRight4_0.90cut.mp4",
+    		"3": "video/audioMod_2021-01-09_Europaeisch_p_001_shiftRight6_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Europaeisch_p_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Europaeisch_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "047",
+     	"TestID": "pandemie_p_vL_big",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Pandemie_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight4_0.90cut.mp4",
+    		"3": "video/visualMod_2021-01-09_Pandemie_p_001_shiftLeft2_cut.mp4",
+    		"4": "video/visualMod_2021-01-09_Pandemie_p_001_shiftLeft4_cut.mp4",
+    		"5": "video/visualMod_2021-01-09_Pandemie_p_001_shiftLeft6_cut.mp4",
+    	}
+    },
+    {
+     	"Name": "084",
+     	"TestID": "tempo_p_vR_big",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
+    		"3": "video/visualMod_2021-01-09_Tempo_p_001_shiftRight2_cut.mp4",
+    		"4": "video/visualMod_2021-01-09_Tempo_p_001_shiftRight4_cut.mp4",
+    		"5": "video/visualMod_2021-01-09_Tempo_p_001_shiftRight6_cut.mp4",
+    	}
+    },
+    // "RED" testsets that serve as third batch
+    {
+     	"Name": "003",
+     	"TestID": "anfang_a_aL_tin",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft1_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft2_0.90cut.mp4",
+    		"3": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "006",
+     	"TestID": "anfang_a_aR_tin",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Anfang_a_002_shiftRight1_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Anfang_a_002_shiftRight2_0.90cut.mp4",
+    		"3": "video/audioMod_2021-01-09_Anfang_a_002_shiftRight3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "007",
+     	"TestID": "anfang_a_mixL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft1_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft2_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "008",
+     	"TestID": "anfang_a_mixR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Anfang_a_002_shiftRight1_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Anfang_a_002_shiftRight2_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Anfang_a_002_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "009",
+     	"TestID": "anfang_a_mulL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Anfang_a_002_shiftLeft1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Anfang_a_002_shiftLeft2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Anfang_a_002_shiftLeft3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "010",
+     	"TestID": "anfang_a_mulR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "019",
+     	"TestID": "euro_p_mixL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Europaeisch_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Europaeisch_p_001_shiftLeft1_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Europaeisch_p_001_shiftLeft2_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Europaeisch_p_001_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Europaeisch_p_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Europaeisch_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "021",
+     	"TestID": "euro_p_mulL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Europaeisch_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Europaeisch_p_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Europaeisch_p_001_shiftLeft1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Europaeisch_p_001_shiftLeft2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Europaeisch_p_001_shiftLeft3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Europaeisch_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "030",
+     	"TestID": "paar_w_aR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Paar_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Paar_w_001_shiftRight1_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Paar_w_001_shiftRight2_0.90cut.mp4",
+    		"3": "video/audioMod_2021-01-09_Paar_w_001_shiftRight3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Paar_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "031",
+     	"TestID": "paar_w_mixL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Paar_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft1_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft2_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Paar_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "032",
+     	"TestID": "paar_w_mixR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Paar_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Paar_w_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Paar_w_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Paar_w_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Paar_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "033",
+     	"TestID": "paar_w_mulL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Paar_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Paar_w_001_shiftLeft1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Paar_w_001_shiftLeft2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Paar_w_001_shiftLeft3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Paar_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "034",
+     	"TestID": "paar_w_mulR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Paar_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Paar_w_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Paar_w_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Paar_w_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Paar_w_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Paar_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "043",
+     	"TestID": "pandemie_p_mixL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Pandemie_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft1_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft2_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "044",
+     	"TestID": "pandemie_p_mixR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Pandemie_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Pandemie_p_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Pandemie_p_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Pandemie_p_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "045",
+     	"TestID": "pandemie_p_mulL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Pandemie_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Pandemie_p_001_shiftLeft1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Pandemie_p_001_shiftLeft2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Pandemie_p_001_shiftLeft3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "046",
+     	"TestID": "pandemie_p_mulR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Pandemie_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Pandemie_p_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Pandemie_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "063",
+     	"TestID": "tempo_all_w_left",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
+    		"5": "video/visualMod_2021-01-09_Tempo_w_001_shiftRight4_cut.mp4",
+    	}
+    },
+    {
+     	"Name": "064",
+     	"TestID": "tempo_all_w_right",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
+    		"4": "video/visualMod_2021-01-09_Tempo_w_001_shiftLeft4_cut.mp4",
+    		"5": "video/visualMod_2021-01-09_Tempo_w_001_shiftRight4_cut.mp4",
+    	}
+    },
+    {
+     	"Name": "065",
+     	"TestID": "tempo_a_mixL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft1_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft2_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "066",
+     	"TestID": "tempo_a_mixR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Tempo_a_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Tempo_a_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_a_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "067",
+     	"TestID": "tempo_a_mulL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_a_001_shiftLeft1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Tempo_a_001_shiftLeft2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Tempo_a_001_shiftLeft3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "068",
+     	"TestID": "tempo_a_mulR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "077",
+     	"TestID": "tempo_p_mixL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft1_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft2_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "079",
+     	"TestID": "tempo_p_mulL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_p_001_shiftLeft1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Tempo_p_001_shiftLeft2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Tempo_p_001_shiftLeft3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "087",
+     	"TestID": "tempo_w_aL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft1_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft2_0.90cut.mp4",
+    		"3": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "088",
+     	"TestID": "tempo_w_aR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Tempo_w_001_shiftRight1_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Tempo_w_001_shiftRight2_0.90cut.mp4",
+    		"3": "video/audioMod_2021-01-09_Tempo_w_001_shiftRight3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "089",
+     	"TestID": "tempo_w_mixL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft1_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft2_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft3_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "090",
+     	"TestID": "tempo_w_mixR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/mixMod_2021-01-09_Tempo_w_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/mixMod_2021-01-09_Tempo_w_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_w_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "091",
+     	"TestID": "tempo_w_mulL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_w_001_shiftLeft1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Tempo_w_001_shiftLeft2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Tempo_w_001_shiftLeft3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+    {
+     	"Name": "092",
+     	"TestID": "tempo_w_mulR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight1_0.90cut.mp4",
+    		"3": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight2_0.90cut.mp4",
+    		"4": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight3_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_w_001_shiftRight4_0.90cut.mp4",
+    	}
+    },
+  ]
+}

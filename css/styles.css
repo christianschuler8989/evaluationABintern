@@ -6,20 +6,20 @@ body {
     font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
 }
 
-.ui-widget { 
-    font-size: 1em; 
+.ui-widget {
+    font-size: 1em;
 }
 
 #Wrapper {
     margin-left:auto;
     margin-right:auto;
-    width: 720px;
+    width: 740px;
 }
 
 .commonBox {
-    margin-top:20px;
-    margin-bottom:20px;
-    padding:20px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding:10px;
     border: 1px solid #999999;
     border-radius: 3px;
     width: 100%;
@@ -28,7 +28,7 @@ body {
 #Footer {
     color: #999999;
     font-size: 70%;
-    margin-top: -18px;
+    margin-top: 10px;
     margin-left: 42px;
     margin-bottom:20px;
     width: 100%;
@@ -37,7 +37,7 @@ body {
 
 #TestTitle {
     text-align:center;
-    font-size:2em;
+    font-size:1em;
     font-weight:bold;
     color: #999999;
 }
@@ -49,21 +49,21 @@ body {
 #TestIntroduction {
     text-align:center;
     min-height:300px;
-    display: none;	
+    display: none;
 }
 
 #TestEnd{
     text-align:center;
     min-height:300px;
-    display: none;	
+    display: none;
 }
 
 #TestHeading {
     text-align:center;
     font-size:1.5em;
-    margin-bottom:20px;	
-    padding:5px;
-    border-radius: 3px;
+    margin-bottom:1px;
+    padding:1px;
+    border-radius: 1px;
     background-color:#dddddd;
 }
 
@@ -77,15 +77,15 @@ body {
 }
 
 #TestTable {
-    border-spacing:10px
+    border-spacing:2px
 }
 
 #TestTable  td {
-    background-color: transparent;	
+    background-color: transparent;
 }
 
 #ScaleImage {
-    padding-left:10px;
+    padding-left:20px;
     padding-right:10px;
 }
 
@@ -115,7 +115,7 @@ body {
 #ResultsBox table {
     text-align:left;
     margin-left:auto;
-    margin-right:auto;    
+    margin-right:auto;
 }
 
 #ResultsBox table td {
@@ -142,11 +142,11 @@ body {
 }
 
 #PlayerControls {
-    display: none;	
+    display: none;
 }
 
 #PlayerControls > div{
-    float:left;	
+    float:left;
     margin-right:40px;
 }
 
@@ -174,7 +174,7 @@ body {
     padding:0.4em;
     border: 1px solid #bbbbbb;
     font-family: monospace;
-    border-radius: 0.2em;	
+    border-radius: 0.2em;
 }
 
 #TimeLine {
@@ -227,10 +227,6 @@ body {
     color:red;
 }
 
-#AudioPool {
-    display:none;
-}
-
 a {
     color: #354556;
     text-decoration: none;
@@ -238,4 +234,70 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+#AudioPool video{
+    width: 760px;
+}
+
+#AudioPool #audioA, #AudioPool #audioB, #AudioPool #audioX{
+    display: none;
+}
+
+#playXBtn{
+    display: none;
+}
+
+.single_comment{
+    position: absolute;
+    width: 640px;
+    margin-top: 30px;
+}
+
+#TableContainer{
+    height: 280px;
+}
+
+.comment{
+    float: left;
+    position: relative;
+    width: 180px;
+}
+
+#TestTable tr{
+    float: left;
+    position: relative;
+}
+
+#selectA{
+    margin-left: 10px;
+}
+
+#selectB{
+    margin-left: 16px;
+}
+
+.select{
+    margin: 0 0 0 67px;
+
+    float: left;
+    position: relative;
+}
+
+#Volume{
+    display: none;
+}
+
+label::after {
+	content: "";
+	display: block;
+}
+
+input:checked {
+  outline: 2px solid green;
+}
+
+input:checked + label {
+  color: green;
+  font-weight: bold;
 }
