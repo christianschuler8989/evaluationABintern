@@ -180,6 +180,7 @@
               <li>Schaue Dir in jedem Test alle Videos durch Anklicken der entsptechenden Buttons an.</li>
               <li>Oben findet sich immer das unveränderte Referenzvideo und darunter die Testkonditionen.</li>
               <li>Nutze die Schieberegler der jeweiligen Videos, um deine Meinung über ihre Qualität anzugeben.</li>
+              <li>Versuch die Lippensynchronität zu bewerten und lege weniger Fokus auf allgemeine Videoqualität.</li>
               <li>Du kannst die Videos in beliebiger Reihenfolge und wiederholt anschauen.</li>
               <li>Sei unbesorgt, falls es dir einige Male schwer fallen sollte, Unterschiede zu erkennen.</li>
               <li>Am unteren Ende des Fensters wirst du für das laufende Video einstellen können, welcher Abschnitt als Schleife abgespielt werden soll, um nicht immer das ganze Video wiederholen zu müssen.</li>
@@ -229,7 +230,7 @@
                 Please submit the results to our server. Entering a name or email address is not mandatory
                 but it would help us to contact you if we have further questions. You can also leave a comment.
                 -->
-                Bitte sende die Resultate nun an den Server. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber in dem Fall, dass Du beschließt an zukünftigen Folgedurchläufen der Studie teilzunehmen, die anschließende Analyse erleichtern . <br />
+                Bitte sende die Resultate nun an den Server. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber in dem Fall, dass Du beschließt an zukünftigen Folgedurchläufen der Studie teilzunehmen, die anschließende Analyse erleichtern. <br />
                 Du kannst außerdem einen Kommentar hinzufügen.
             </p>
             <p class="submitDownload">
@@ -238,7 +239,7 @@
                 Please download and save the results. Entering a name or email address is not mandatory
                 but it would help us to contact you if we have further questions. You can also leave a comment.
                 -->
-                Bitte downloade nun die Resultate und sende sie uns zu. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber in dem Fall, dass Du beschließt an zukünftigen Folgedurchläufen der Studie teilzunehmen, die anschließende Analyse erleichtern . <br />
+                Bitte downloade nun die Resultate und sende sie uns zu. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber in dem Fall, dass Du beschließt an zukünftigen Folgedurchläufen der Studie teilzunehmen, die anschließende Analyse erleichtern. <br />
                 Du kannst außerdem einen Kommentar hinzufügen.
             </p>
             <table border=0 style="margin-left: auto;margin-right: auto;">
@@ -247,11 +248,13 @@
             <tr><td></td><td><textarea id="UserComment" cols="40" rows="4">Dein Kommentar...</textarea></td></tr>
             </table>
             <br />
-            <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">Submit</button>
+            <!-- <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">Submit</button> -->
+            <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">Senden</button>
             <button id="BtnDownloadData" class="submitDownload" onclick="testHandle.DownloadTestResults();">Download</button>
             <p class="submitEmail error">
                 <!-- edit here if you want to change the information about email submission, e.g. add privacy policy information -->
-                Results should be send to <span class="supervisorEmail"></span>
+                <!-- Results should be send to <span class="supervisorEmail"></span> -->
+                Resultate sollten gesendet werden an <span class="supervisorEmail"></span>
             </p>
         </div>
 

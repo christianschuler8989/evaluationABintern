@@ -902,7 +902,8 @@ $.extend({ alert: function (message, title) {
                     dataType: 'json'})
             .done( function (response){
                     if (response.error==false) {
-                        $('#SubmitBox').html("Your submission was successful.<br/><br/>");
+                        //$('#SubmitBox').html("Your submission was successful.<br/><br/>");
+                        $('#SubmitBox').html("Deine Bewertungen wurden erolgreich abgeschickt.<br/><br/>");
                         testHandle.TestState.TestIsRunning = 0;
                     } else {
                         $('#SubmitError').show();
