@@ -10,16 +10,16 @@ var TestConfig = {
   "ShowResults": false,
   "LoopByDefault": true,
   "EnableABLoop": true,
-  "EnableOnlineSubmission": false,
-  "BeaqleServiceURL": "",
-  //"BeaqleServiceURL": "/web_service/beaqleJS_Service.php",
+  "EnableOnlineSubmission": true,
+  "BeaqleServiceURL": "https://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
   "SupervisorContact": "",
-  "RandomizeTestOrder": false,
-  "MaxTestsPerRun": 100,
+  "RandomizeTestOrder": true,
+  "AnchorsNumber": 4,
+  "MaxTestsPerRun": 10,
   "RequireMaxRating": false,
   "AudioRoot": "",
   "Testsets": [
-    //
+    // "ALL" testsets without seperating into anchors and/or study-sets
     {
      	"Name": "001",
      	"TestID": "anfang_a_aL_big",

@@ -10,9 +10,8 @@ var TestConfig = {
   "ShowResults": false,
   "LoopByDefault": true,
   "EnableABLoop": true,
-  "EnableOnlineSubmission": false,
-  "BeaqleServiceURL": "",
-  //"BeaqleServiceURL": "/web_service/beaqleJS_Service.php",
+  "EnableOnlineSubmission": true,
+  "BeaqleServiceURL": "https://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
   "SupervisorContact": "",
   "RandomizeTestOrder": true,
   "AnchorsNumber": 4,
@@ -348,6 +347,32 @@ var TestConfig = {
     	}
     },
     {
+     	"Name": "069",
+     	"TestID": "tempo_a_vL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
+    		"3": "video/visualMod_2021-01-09_Tempo_a_001_shiftLeft2_cut.mp4",
+    		"4": "video/visualMod_2021-01-09_Tempo_a_001_shiftLeft3_cut.mp4",
+    		"5": "video/visualMod_2021-01-09_Tempo_a_001_shiftLeft4_cut.mp4",
+    	}
+    },
+    {
+     	"Name": "070",
+     	"TestID": "tempo_a_vR",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/mixMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/multiMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
+    		"3": "video/visualMod_2021-01-09_Tempo_a_001_shiftRight2_cut.mp4",
+    		"4": "video/visualMod_2021-01-09_Tempo_a_001_shiftRight3_cut.mp4",
+    		"5": "video/visualMod_2021-01-09_Tempo_a_001_shiftRight4_cut.mp4",
+    	}
+    },
+    {
      	"Name": "071",
      	"TestID": "tempo_p_aL_big",
      	"Files":
@@ -438,6 +463,5 @@ var TestConfig = {
     		"5": "video/visualMod_2021-01-09_Tempo_p_001_shiftRight5_cut.mp4",
     	}
     },
-
   ]
 }
