@@ -917,6 +917,13 @@ $.extend({ alert: function (message, title) {
 
         //var EvalResults = this.TestState.EvalResults;
         //EvalResults.push(UserObj)
+        // ###################################################################
+        // submit test results to server
+        ListeningTest.prototype.SubmitTestResults = function () {
+
+            var UserObj = this.getUserObj();
+            var EvalResults = this.TestState.EvalResults.slice(0);
+            EvalResults.push(UserObj);
 
         var testHandle = this;
         $.ajax({
