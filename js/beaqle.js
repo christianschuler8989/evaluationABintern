@@ -630,6 +630,10 @@ $.extend({ alert: function (message, title) {
         var stopTime = new Date().getTime();
         this.TestState.Runtime[this.TestState.TestSequence[this.TestState.CurrentTest]] += stopTime - this.TestState.startTime;
 
+        // send current state of results [Christian]
+        //$('#ResultsBox').html(this.formatResults());
+        //$("#SubmitBox > .submitDownload").show();
+
         // go to next test
         if (this.TestState.CurrentTest<this.TestState.TestSequence.length-1) {
             this.TestState.CurrentTest = this.TestState.CurrentTest+1;
@@ -953,15 +957,6 @@ $.extend({ alert: function (message, title) {
         UserObj.UserAge = $('#UserAge').val();
         UserObj.UserSex = $('#UserSex').val();
         UserObj.UserInterest = $('#UserInterest').val();
-        /*
-        UserObj.UserInterest01 = $('#UserInterest01').val();
-        UserObj.UserInterest02 = $('#UserInterest02').val();
-        UserObj.UserInterest03 = $('#UserInterest03').val();
-        UserObj.UserInterest04 = $('#UserInterest04').val();
-        UserObj.UserInterest05 = $('#UserInterest05').val();
-        UserObj.UserInterest06 = $('#UserInterest06').val();
-        UserObj.UserInterest07 = $('#UserInterest07').val();
-        */
         UserObj.UserLanguage = $('#UserLanguage').val();
         UserObj.UserEyesight = $('#UserEyesight').val();
 
