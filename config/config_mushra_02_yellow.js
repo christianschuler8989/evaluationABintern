@@ -11,6 +11,7 @@ var TestConfig = {
   "LoopByDefault": false,
   "EnableABLoop": true,
   "EnableOnlineSubmission": true,
+  "UploadIntermediates": true,
   "BeaqleServiceURL": "https://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
   "SupervisorContact": "7schuler@informatik.uni-hamburg.de",
   "RandomizeTestOrder": true,
