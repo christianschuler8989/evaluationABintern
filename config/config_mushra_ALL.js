@@ -14,7 +14,7 @@ var TestConfig = {
   "BeaqleServiceURL": "https://www.timobaumann.de/temp/vtts/beaqleJS_Service.php",
   "SupervisorContact": "",
   "RandomizeTestOrder": true,
-  "AnchorsNumber": 4,
+  "AnchorsNumber": 2,
   "MaxTestsPerRun": 10,
   "RequireMaxRating": false,
   "AudioRoot": "",
