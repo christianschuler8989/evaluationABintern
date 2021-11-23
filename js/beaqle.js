@@ -591,6 +591,7 @@ $.extend({ alert: function (message, title) {
 
           // run first test
           this.TestState.CurrentTest = 0;
+
         // Case with specified number of anchor-testsets
         } else if (this.TestConfig.AnchorsNumber > 0) {
           // add the anchor-testsets
@@ -606,14 +607,17 @@ $.extend({ alert: function (message, title) {
           // shorten the temporary sequence
           if ((this.TestConfig.MaxTestsPerRun > 0) && (this.TestConfig.MaxTestsPerRun < this.TestConfig.Testsets.length)) {
             this.TestConfig.RandomizeTestOrder = true;
+            // shuffle the sequence (but keep anchors in front unchanged for comparison)
             this.TestState.TempTestSequence = shuffleArray(this.TestState.TempTestSequence);
             this.TestState.TempTestSequence = this.TestState.TempTestSequence.slice(0, this.TestConfig.MaxTestsPerRun - this.TestConfig.AnchorsNumber);
             this.TestState.TestSequence = this.TestState.AnchorTestSequence.concat(this.TestState.TempTestSequence);
           } else if (this.TestConfig.RandomizeTestOrder == true) {
+            // shuffle the sequence (but keep anchors in front unchanged for comparison)
+            this.TestState.TempTestSequence = shuffleArray(this.TestState.TempTestSequence);
             this.TestState.TestSequence = this.TestState.AnchorTestSequence.concat(this.TestState.TempTestSequence);
           }
           // shuffle the sequence
-          this.TestState.TestSequence = shuffleArray(this.TestState.TestSequence);
+          //this.TestState.TestSequence = shuffleArray(this.TestState.TestSequence);
 
           this.TestState.Ratings = Array(this.TestConfig.Testsets.length);
           this.TestState.Runtime = new Uint32Array(this.TestConfig.Testsets.length);
