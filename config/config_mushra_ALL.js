@@ -16,7 +16,7 @@ var TestConfig = {
   "SupervisorContact": "7schuler@informatik.uni-hamburg.de",
   "RandomizeTestOrder": true,
   "AnchorsNumber": 2,
-  "MaxTestsPerRun": 10,
+  "MaxTestsPerRun": 94,
   "RequireMaxRating": false,
   "AudioRoot": "",
   "Testsets": [

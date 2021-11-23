@@ -1180,7 +1180,7 @@ MushraTest.prototype.createTestDOM = function (TestIdx) {
         cell[1].innerHTML =  '<button id="play'+fileID+'Btn" onclick="showVideo(this.id);" class="playButton" rel="'+fileID+'">Play</button>';
         this.addAudio(TestIdx, fileID, fileID);
         cell[2] = row.insertCell(-1);
-        cell[2].innerHTML = "<button class='stopButton'>Stop</button>";
+        cell[2].innerHTML = "<button class='stopButton'><span class='textEN'>Stop</span><span class='textDE'>Stopp</span></button>";
         cell[3] = row.insertCell(-1);
         cell[3].innerHTML = "<img id='ScaleImage' src='"+this.TestConfig.RateScalePng+"'/>";
         //this.addAudio(TestIdx, fileID, fileID);
@@ -1211,7 +1211,7 @@ MushraTest.prototype.createTestDOM = function (TestIdx) {
             this.addAudio(TestIdx, fileID, relID);
 
             cell[2] = row[i].insertCell(-1);
-            cell[2].innerHTML = "<button class='stopButton'>Stop</button>";
+            cell[2].innerHTML = "<button class='stopButton'><span class='textEN'>Stop</span><span class='textDE'>Stopp</span></button>";
 
             cell[3] = row[i].insertCell(-1);
             var fileIDstr = "";
@@ -1370,10 +1370,10 @@ AbxTest.prototype.createTestDOM = function (TestIdx) {
         this.addAudio(TestIdx, fileID, fileID);
 
         cell[3] = row.insertCell(-1);
-        cell[3].innerHTML = "<button class='stopButton'>Stop</button>";
+        cell[3].innerHTML = "<button class='stopButton'><span class='textEN'>Stop</span><span class='textDE'>Stopp</span></button>";
 
         cell[4] = row.insertCell(-1);
-        cell[4].innerHTML = "Press buttons to start/stop playback.";
+        cell[4].innerHTML = "<span class='textEN'>Press buttons to start/stop playback.</span><span class='textDE'>Benutze die Schaltflächen um A oder B abzuspielen.</span>";
 
         row[1]  = tab.insertRow(-1);
         cell[0] = row[1].insertCell(-1);
@@ -1383,7 +1383,8 @@ AbxTest.prototype.createTestDOM = function (TestIdx) {
         cell[2].innerHTML = "<input type='radio' name='ItemSelection' id='selectB' required />";
         cell[3] = row[1].insertCell(-1);
         cell[4] = row[1].insertCell(-1);
-        cell[4].innerHTML = "Please select the item which is closest to X!";
+        cell[4].innerHTML = "<span class='textEN'>Please select the item which is closest to X!</span> <span class='textDE'>Bitte wähle den Stimulus der am ehesten X entspricht!.</span>";
+
         //cell[4].innerHTML = "<p class='select'>Please select the video with the better subtitles! Important : After choosing the Video, go forward by clicking 'Next Test'</p>";
         //row[2]  = tab.insertRow(-1);
         //cell[5] = row[2].insertCell(-1);
@@ -1534,10 +1535,10 @@ PrefTest.prototype.createTestDOM = function (TestIdx) {
         this.addAudio(TestIdx, fileID, fileID);
 
         cell[2] = row.insertCell(-1);
-        cell[2].innerHTML = "<button class='stopButton'>Stop</button>";
+        cell[2].innerHTML = "<button class='stopButton'><span class='textEN'>Stop</span><span class='textDE'>Stopp</span></button>";
 
         cell[3] = row.insertCell(-1);
-        cell[3].innerHTML = "Press buttons to start/stop playback.";
+        cell[3].innerHTML = "<span class='textEN'>Press buttons to start/stop playback.</span><span class='textDE'>Benutze die Schaltflächen um A oder B abzuspielen.</span>";
 
         row[1]  = tab.insertRow(-1);
         cell[0] = row[1].insertCell(-1);
@@ -1546,7 +1547,7 @@ PrefTest.prototype.createTestDOM = function (TestIdx) {
         cell[1].innerHTML = "<input type='radio' name='ItemSelection' id='selectB'/>";
         cell[2] = row[1].insertCell(-1);
         cell[3] = row[1].insertCell(-1);
-        cell[3].innerHTML = "Please select the item which you prefer!";
+        cell[3].innerHTML = "<span class='textEN'>Please select the item which you prefer!</span> <span class='textDE'>Bitte wähle den besseren Stimulus.</span>";
 
         // add spacing
         row = tab.insertRow(-1);

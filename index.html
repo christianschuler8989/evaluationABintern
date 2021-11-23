@@ -55,6 +55,14 @@
     <script src="js/jquery-ui.custom.min.js" type="text/javascript" ></script>
     <script src="js/beaqle.js" type="text/javascript"></script>
 
+    <style title="EN">
+    .textEN { display: inherit }
+    .textDE { display: none }
+    </style>
+    <style title="DE">
+    .textEN { display: none }
+    .textDE { display: inherit }
+    </style>
 
     <script type="text/javascript">
     /* <![CDATA[ */
@@ -65,6 +73,7 @@
 
             testHandle = new MushraTest(TestConfig);    // <-- MUSHRA test class
             //testHandle = new AbxTest(TestConfig);     // <-- ABX test class
+            //testHandle = new PrefTest(TestConfig);     // <-- preference test class
 
             $('#Footer').prepend(testHandle.browserFeatureString() + '<br/>');
         };
@@ -95,14 +104,22 @@
         <!-- edit here if you want to change the welcome message  and instructions -->
 
         <div style="text-align:left">
-            <!-- Thank you for your interest in participating in this test. <br />
+          <span class="textEN">
+            Thank you for your interest in participating in this test. <br />
             The overall test will roughly take 10 minutes. <br />
-            Please take your time and carefully rate every item. <br /> -->
+            Please take your time and carefully rate every item. <br />
+          </span>
+          <span class="textDE">
             Vielen Dank für Dein Interesse an dieser Studienteilnahme. <br />
             Die Gesamtdauer sollte ungefähr 10 Minuten betragen. <br />
+            Bitte nimm Dir die Zeit jeden Testgegenstand genau zu bewerten. <br />
+          </span>
 
             <br />
-            <label for="UserAge">Altersgruppe:</label>
+            <label for="UserAge">
+              <span class="textEN">Agegroup:</span>
+              <span class="textDE">Altersgruppe:</span>
+            </label>
             <select id="UserAge" name"alter">
               <option value="none">Keine Angabe</option>
               <option value="0">Jünger als 19 Jahre</option>
@@ -120,24 +137,23 @@
 
             <br />
             <br />
-            <label for="UserSex">Geschlecht:</label>
+            <label for="UserSex">
+              <span class="textEN">Gender:</span>
+              <span class="textDE">Geschlecht:</span>
+            </label>
             <select id="UserSex" name="UserSex">
-              <option value="none">Keine Angabe</option>
+              <option value="none">Keine Angabe</span>
+              </option>
               <option value="male">Männlich</option>
               <option value="female">Weiblich</option>
             </select>
-            <!--
-            <table>
-              <td>Geschlecht:</td>
-              <td><input type="radio" id="UserSex01" name="UserSexN" value="none" checked> <label for"UserSexN">Keine Angabe</label></td>
-              <td><input type="radio" id="UserSex02" name="UserSexM" value="male"> <label for"UserSexM">Mann</label></td>
-              <td><input type="radio" id="UserSex03" name="UserSexF" value="female"> <label for"UserSexF">Frau</label></td>
-            </table>
-          -->
 
             <br />
             <br />
-            <label for="UserInterest">Stärksten Interessen:</label>
+            <label for="UserInterest">
+              <span class="textEN">Interest or field of study:</span>
+              <span class="textDE">Interesse oder Studienfach:</span>
+            </label>
             <select id="UserInterest" name="UserInterest">
               <option value="none">Keine Angabe</option>
               <option value="natur">Naturwissenschaften (Mathematik, Informatik, Physik, Chemie, Geologie, Biologie, ...)</option>
@@ -148,79 +164,84 @@
               <option value="gesun">Gesundheitswissenschaften (Medizin, Pharmazie, Medizinische Biotechnologie, ...)</option>
               <option value="techn">Technische Wissenschaften (Maschinenbau, Bauingenieurwesen, Elektrotechnik, ...)</option>
             </select>
-            <!--
-            <fieldset>
-            	<legend>Stärksten Interessen:</legend>
-            	<input type="checkbox" name="UserInterest" value="Naturwissenschaften" id="UserInterest01">
-            	<label for="UserInterest01">Naturwissenschaften (Mathematik, Informatik, Physik, Chemie, Geologie, Biologie, ...)</label>
-            	<input type="checkbox" name="UserInterest" value="Geisteswissenschaften" id="UserInterest02">
-            	<label for="UserInterest02">Geisteswissenschaften (Geschichte, Sprache, Literatur, Philosophie, Ethik, Religion, ...)</label>
-            	<input type="checkbox" name="UserInterest" value="Kunstwissenschaften" id="UserInterest03">
-            	<label for="UserInterest03">Kunstwissenschaften (Musik, Kunst, Theater, Fotografie, Kunstgeschichte, ...)</label>
-            	<input type="checkbox" name="UserInterest" value="Sozialwissenschaften" id="UserInterest04">
-            	<label for="UserInterest04">Sozialwissenschaften (Psychologie, Erziehung, Soziologie, Politik, Recht, Wirtschaft, ...)</label>
-            	<input type="checkbox" name="UserInterest" value="Agrarwissenschaften" id="UserInterest05">
-            	<label for="UserInterest05">Agrarwissenschaften (Land- und Forstwirtschaft, Fischerei, Tierzucht, Tiermedizin, ...)</label>
-            	<input type="checkbox" name="UserInterest" value="Gesundheitswissenschaften" id="UserInterest06">
-            	<label for="UserInterest06">Gesundheitswissenschaften (Medizin, Pharmazie, Medizinische Biotechnologie, ...)</label>
-              <input type="checkbox" name="UserInterest" value="Technische Wissenschaften" id="UserInterest07">
-            	<label for="UserInterest07">Technische Wissenschaften (Maschinenbau, Bauingenieurwesen, Elektrotechnik, ...)</label>
-            </fieldset>
-            -->
 
             <br />
             <br />
-            Muttersprache (falls eine andere als Deutsch):
-            <br />
+            <label for="UserLanguage">
+              <span class="textEN">Native language (in case it is not german):</span>
+              <span class="textDE">Muttersprache (falls nicht Deutsch):</span>
+            </label>
             <input id="UserLanguage" type="text" size="40" maxlength="40" />
 
             <br />
             <br />
-            Einschränkung der Sehkraft (falls vorliegend):
-            <br />
+            <label for="UserEyesight">
+              <span class="textEN">Impairement of eyesight (if applicable):</span>
+              <span class="textDE">Einschränkung der Sehkraft (falls vorliegend):</span>
+            </label>
             <input id="UserEyesight" type="text" size="80" maxlength="80" />
 
             <br />
             <br />
-
-            <!-- <span class="textDE"></span> -->
-              <!-- <ul> -->
-            <!--    <li>-->
-            <span class="textDE">Dein Name oder ein Pseudonym erlaubt uns, alle Deine Bewertungen zusammenzufassen falls Du an zukünftigen Folgedurchläufen der Studie teilnimmst und weitere Bewertungen abgibst.</span> <!-- </li> -->
-            <br />
-            Name oder Pseudonym:
-            <br />
+            <label for="UserName">
+              <span class="textEN">Name or pseudonym::</span>
+              <span class="textDE">Name oder Pseudonym:</span>
+            </label>
             <input id="UserName" type="text" size="40" maxlength="40" />
-
+            <br />
+            <span class="textEN">Your name or pseudonym allow us to group your evaluations together in case you decide to participate in following instances of this study.</span>
+            <span class="textDE">Dein Name oder ein Pseudonym erlaubt uns, alle Deine Bewertungen zusammenzufassen falls Du an zukünftigen Folgedurchläufen der Studie teilnimmst und weitere Bewertungen abgibst.</span>
 
             <br />
             <br />
-            Kurze Anleitung:
+            <span class="textEN">Instructions:</span>
+            <span class="textDE">Anleitung:</span>
             <ul>
-              <li>Schaue Dir in jedem Test alle Videos durch Anklicken der entsptechenden Buttons an.</li>
-              <li>Oben findet sich immer das unveränderte Referenzvideo und darunter die Testkonditionen.</li>
-              <li>Nutze die Schieberegler der jeweiligen Videos, um deine Meinung über ihre Qualität anzugeben.</li>
-              <li>Versuch die Lippensynchronität zu bewerten und lege weniger Fokus auf allgemeine Videoqualität.</li>
-              <li>Du kannst die Videos in beliebiger Reihenfolge und wiederholt anschauen.</li>
-              <li>Sei unbesorgt, falls es dir einige Male schwer fallen sollte, Unterschiede zu erkennen.</li>
-              <li>Am unteren Ende des Fensters wirst du für das laufende Video einstellen können, welcher Abschnitt als Schleife abgespielt werden soll, um nicht immer das ganze Video wiederholen zu müssen.</li>
-              <li>Diese Webseite sendet Deine Präferenzurteile zu unserem Server wo sie gespeichert werden.</li>
-              <!--
-              <li> You should listen to the reference and all the test conditions by clicking on the respective buttons. </li>
-              <li> You may listen to the signals in any order, any number of times. </li>
-              <li> In these videos, you see some deviations in lip synchrony from the reference video shown above. </li>
-              <li> Use the slider for each signal to indicate your opinion of its quality. </li>
-              <li> Do not be worried: it sometimes may be difficult to detect the differences. </li>
-              <li> At the bottom of the test-window you will be able to control the area of the video to be looped if you want to take a closer look. </li>
-              -->
-                <!-- <li>Most important: use high quality studio headphones and a good soundcard!</li>
-                <li>Listen through all test files and test sets before you do any ratings to get used to the material.</li>
-                <li>Rate the quality of the test items only compared to the reference on top.</li>
-                <li>Try to rate the overall impression of a test item and don't concentrate on single aspects. </li>
-                <li> Your  grades  should  reflect  your  subjective  judgement  of  the  quality  level  for  each  of  the  sound excerpts  presented  to  you.  Each  trial  will  contain  9  signals  to  be  graded.  Each  of  the  items  is approximately  10 s  long. </li>
-                <li> Please order the different examples below by what's most synchronous and by what's least synchronous. </li> -->
+              <li>
+                <span class="textEN">Please take the test in a low-noise environment, ideally with high quality head-phones.</span>
+                <span class="textDE">Bitte nimm die Bewertungen in einer ruhigen Umgebung vor, idealerweise mit guten Kopfhörern.</span>
+              </li>
+              <li>
+                <span class="textEN">You should listen to the reference and all the test conditions by clicking on the respective buttons.</span>
+                <span class="textDE">Schaue Dir in jedem Test alle Videos durch Anklicken der entsptechenden Schaltknöpfe an.</span>
+              </li>
+              <li>
+                <span class="textEN">Rate the quality of the test items only compared to the reference on top.</span>
+                <span class="textDE">Oben findet sich immer das unveränderte Referenzvideo und darunter die Testkonditionen.</span>
+              </li>
+              <li>
+                <span class="textEN">Use the slider for each signal to indicate your opinion of its quality.</span>
+                <span class="textDE">Nutze die Schieberegler der jeweiligen Videos, um deine Meinung über ihre Qualität anzugeben.</span>
+              </li>
+              <li>
+                <span class="textEN">Try to evaluate the lip synchrony and put less focus on the overall video-quality.</span>
+                <span class="textDE">Versuch die Lippensynchronität zu bewerten und lege weniger Fokus auf allgemeine Videoqualität.</span>
+              </li>
+              <li>
+                <span class="textEN">You may listen to the signals in any order, any number of times.</span>
+                <span class="textDE">Du kannst die Videos in beliebiger Reihenfolge und wiederholt anschauen.</span>
+              </li>
+              <li>
+                <span class="textEN">Do not be worried: it sometimes may be difficult to detect the differences.</span>
+                <span class="textDE">Sei unbesorgt, falls es dir einige Male schwer fallen sollte, Unterschiede zu erkennen.</span>
+              </li>
+              <li>
+                <span class="textEN">At the bottom of the test-window you will be able to control the area of the video to be looped if you want to take a closer look.</span>
+                <span class="textDE">Am unteren Ende des Fensters wirst du für das laufende Video einstellen können, welcher Abschnitt als Schleife abgespielt werden soll, um nicht immer das ganze Video wiederholen zu müssen.</span>
+              </li>
+              <li>
+                <span class="textEN">
+                  This website sends your indicated preferences to our server where they will be saved. <br />
+                  This makes it possible for you to stop any time without any data getting lost. <br />
+                  We are delighted about every finished evaluation, even after the 10 minute mark- but you should be careful not to overstrain yourself and take a break or simply stop the test after some time according to your own judgement.
+                </span>
+                <span class="textDE">
+                  Diese Webseite sendet Deine Präferenzurteile zu unserem Server wo sie gespeichert werden. <br />
+                  Dies ermöglicht es, dass Du jederzeit aufhören kannst, ohne das Daten verloren gehen. <br />
+                  Zwar freuen wir uns über jeden, auch nach den 10 Minuten, absolvierten Vergleich, jedoch solltest Du dich nicht überanstrengen und rechtzeitig eine Pause einlegen oder den Test einfach beenden.
+                </span>
+              </li>
             </ul>
-
         </div>
         <br />
         <br />
@@ -233,35 +254,45 @@
     <div id="TestEnd" class="commonBox">
 
         <!-- edit here if you want to change the thank you message -->
-        <!-- Thank you very much! -->
-        Vielen lieben Dank für die Teilnahme!
+        <span class="textEN">Thank you very much!</span>
+        <span class="textDE">Vielen lieben Dank!</span>
         <br />
         <br />
 
         <!-- show some informations before submitting the results -->
         <div id="SubmitBox">
             <div id="SubmitError" class="error">
-                <!-- We are sorry, but the following error occured during your submission: -->
-                Es tut uns leid, aber der folgende Fehler ist aufgetreten:
+              <span class="textEN">We are sorry, but the following error occured during your submission:</span>
+              <span class="textDE">Es tut uns leid, aber der folgende Fehler ist aufgetreten:</span>
                 <p id="ErrorCode"></p>
             </div>
             <p class="submitOnline">
-                <!-- edit here if you want to change the information about online submission, e.g. add privacy policy information -->
-                <!--
-                Please submit the results to our server. Entering a name or email address is not mandatory
-                but it would help us to contact you if we have further questions. You can also leave a comment.
-                -->
-                Bitte sende die Resultate nun an den Server. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber in dem Fall, dass Du beschließt an zukünftigen Folgedurchläufen der Studie teilzunehmen, die anschließende Analyse erleichtern. <br />
+              <!-- edit here if you want to change the information about online submission, e.g. add privacy policy information -->
+              <span class="textEN">
+                Please submit the results to our server. Entering a name or email address is not mandatory but can ease our analysis of the data in case you decide to participate in following instances of this study. <br />
+                <!-- Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br /> -->
+                You can also leave a comment.
+              </span>
+              <span class="textDE">
+                Bitte sende die Resultate nun an unseren Server. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber die anschließende Analyse erleichtern, falls Du beschließen solltest an zukünftigen Folgedurchläufen der Studie teilzunehmen. <br />
+                <!-- Die Angabe von Name oder Email sind nicht zwingend notwendig, ermöglichen es uns aber Dich für möglicherweise aufkommende Nachfragen zu kontaktieren.-->
                 Du kannst außerdem einen Kommentar hinzufügen.
+              </span>
+
             </p>
             <p class="submitDownload">
                 <!-- edit here if you want to change the information about online submission, e.g. add privacy policy information -->
-                <!--
-                Please download and save the results. Entering a name or email address is not mandatory
-                but it would help us to contact you if we have further questions. You can also leave a comment.
-                -->
-                Bitte downloade nun die Resultate und sende sie uns zu. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber in dem Fall, dass Du beschließt an zukünftigen Folgedurchläufen der Studie teilzunehmen, die anschließende Analyse erleichtern. <br />
-                Du kannst außerdem einen Kommentar hinzufügen.
+                <span class="textEN">
+                  Please download and save the results to send them to us. Entering a name or email address is not mandatory but can ease our analysis of the data in case you decide to participate in following instances of this study. <br />
+                  <!-- Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br /> -->
+                  You can also leave a comment.
+                </span>
+                <span class="textDE">
+                  Bitte downloade nun die Resultate und sende sie uns zu. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber die anschließende Analyse erleichtern, falls Du beschließen solltest an zukünftigen Folgedurchläufen der Studie teilzunehmen. <br />
+                  <!-- Die Angabe von Name oder Email sind nicht zwingend notwendig, ermöglichen es uns aber Dich für möglicherweise aufkommende Nachfragen zu kontaktieren.-->
+                  Du kannst außerdem einen Kommentar hinzufügen.
+                </span>
+
             </p>
             <table border=0 style="margin-left: auto;margin-right: auto;">
             <!-- <tr><td>Name:</td><td><input id="UserName" type="text" size="40" maxlength="40" /></td></tr> -->
@@ -270,12 +301,18 @@
             </table>
             <br />
             <!-- <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">Submit</button> -->
-            <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">Senden</button>
-            <button id="BtnDownloadData" class="submitDownload" onclick="testHandle.DownloadTestResults();">Download</button>
+            <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">
+              <span class="textEN">Submit</span>
+              <span class="textDE">Senden</span>
+            </button>
+            <button id="BtnDownloadData" class="submitDownload" onclick="testHandle.DownloadTestResults();">
+              <span class="textEN">Download</span>
+              <span class="textDE">Herunterladen</span>
+            </button>
             <p class="submitEmail error">
                 <!-- edit here if you want to change the information about email submission, e.g. add privacy policy information -->
-                <!-- Results should be send to <span class="supervisorEmail"></span> -->
-                Resultate sollten gesendet werden an <span class="supervisorEmail"></span>
+                <span class="textEN">Results should be sent to <span class="supervisorEmail"></span></span>
+                <span class="textDE">Resultate sollen gesendet werden an <span class="supervisorEmail"></span></span>
             </p>
         </div>
 
@@ -301,13 +338,14 @@
 
     <!-- controls to go to next/previous test -->
     <div id="TestControls" class="commonBox">
-        <!--
-        <button id="BtnNextTest">Next Test</>
-        <button id="BtnPrevTest">Previous Test</>
-        -->
-        <!-- <button id="BtnNextTest" onclick="testHandle.DownloadTestResults();">Nächster Test</button> -->
-        <button id="BtnNextTest">Nächster Test</button>
-        <button id="BtnPrevTest">Vorheriger Test</button>
+        <button id="BtnNextTest">
+          <span class="textEN">Next Test</span>
+          <span class="textDE">Nächster Vergleich</span>
+        </button>
+        <button id="BtnPrevTest">
+          <span class="textEN">Previous Test</span>
+          <span class="textDE">Voriger Vergleich</span>
+        </button>
     </div>
 
     <!-- playback control -->
@@ -323,12 +361,19 @@
         </div>
 
         <div>
-            <input id="ChkLoopAudio" type="checkbox" value="Loop" /><label for="ChkLoopAudio">Loop</label>
-            <input id="ChkAutoReturn" type="checkbox" value="Auto Return" /><label for="ChkAutoReturn">Auto Return</label>
+            <input id="ChkLoopAudio" type="checkbox" value="Loop" /><label for="ChkLoopAudio">
+              <span class='textEN'>Loop</span>
+              <span class='textDE'>endlos</span>
+            </label>
+            <input id="ChkAutoReturn" type="checkbox" value="Auto Return" /><label for="ChkAutoReturn">
+              <span class='textEN'>Auto Return</span>
+              <span class='textDE'>Automatisches Abspielen</span>
+            </label>
         </div>
 
         <div id="Volume">
-            Volume
+            <span class="textEN">Volume</span>
+            <span class="textDE">Lautstärke</span>
             <div id="VolumeSlider"></div>
         </div>
 
