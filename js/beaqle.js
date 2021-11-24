@@ -908,7 +908,7 @@ $.extend({ alert: function (message, title) {
         UserObj.UserComment = $('#UserComment').val();
         UserObj.SingleComments = this.TestState.single_comment;
         UserObj.UserAge = $('#UserAge').val();
-        UserObj.UserSex = $('#UserSex01').val();
+        UserObj.UserSex = $('#UserSex').val();
         UserObj.UserInterest = $('#UserInterest').val();
         UserObj.UserLanguage = $('#UserLanguage').val();
         UserObj.UserEyesight = $('#UserEyesight').val();
