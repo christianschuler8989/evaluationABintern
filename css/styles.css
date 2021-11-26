@@ -6,6 +6,10 @@ body {
     font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
 }
 
+input[type="text"], textarea {
+  background-color : #d1d1d1; 
+}
+
 .ui-widget {
     font-size: 1em;
 }
