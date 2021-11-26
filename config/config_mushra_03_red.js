@@ -1,6 +1,6 @@
 // configure the test here
 var TestConfig = {
-  "TestName": "Mushra Red Test",
+  "TestName": "Lip-Synchrony Red Test",
   "RateScalePng": "img/scale_abs.png",
   "RateScaleBgPng": "img/scale_abs_background.png",
   "RateMinValue": 0,

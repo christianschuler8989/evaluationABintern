@@ -1,6 +1,6 @@
 // configure the test here
 var TestConfig = {
-  "TestName": "Mushra Blue Test",
+  "TestName": "Lip-Synchrony Blue Test",
   "RateScalePng": "img/scale_abs.png",
   "RateScaleBgPng": "img/scale_abs_background.png",
   "RateMinValue": 0,
@@ -16,7 +16,7 @@ var TestConfig = {
   "SupervisorContact": "7schuler@informatik.uni-hamburg.de",
   "RandomizeTestOrder": true,
   "AnchorsNumber": 2,         // <= Number of testsets that are always part of a session
-  "MaxTestsPerRun": 25,
+  "MaxTestsPerRun": 4,
   "RequireMaxRating": false,
   "AudioRoot": "",
   "Testsets": [

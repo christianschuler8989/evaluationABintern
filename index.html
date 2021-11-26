@@ -112,8 +112,8 @@
           </span>
           -->
           <span class="textDE">
-            Vielen Dank für Dein Interesse an dieser Studienteilnahme. <br />
-            Die Gesamtdauer sollte ungefähr 10 Minuten betragen. <br />
+            Vielen Dank für Dein Interesse an dieser Studienteilnahme.
+            Die Gesamtdauer sollte ungefähr 10 Minuten betragen.
             Bitte nimm Dir die Zeit jeden Testgegenstand genau zu bewerten. <br />
           </span>
 
@@ -197,9 +197,8 @@
             <span class="textDE">Dein Name oder ein Pseudonym erlaubt uns, alle Deine Bewertungen zusammenzufassen <strong>falls Du an zukünftigen Folgedurchläufen der Studie teilnimmst</strong> und weitere Bewertungen abgibst. Es ist also egal, was du hier eingibst, solange du dich beim nächsten Mal noch daran erinnerst, was es war.</span>
 
             <br />
-            <br />
             <!--<span class="textEN">Instructions:</span>-->
-            <span class="textDE">Anleitung:</span>
+            <span class="textDE"><strong>Anleitung:</strong></span>
             <ul>
               <li>
                 <!--
@@ -265,8 +264,6 @@
               </li>
             </ul>
         </div>
-        <br />
-        <br />
 
         <!-- this button starts the first test -->
         <button id="BtnStartTest" onclick="testHandle.startTests();">Start!</button>
@@ -288,6 +285,7 @@
               <span class="textDE">Es tut uns leid, aber der folgende Fehler ist aufgetreten:</span>
                 <p id="ErrorCode"></p>
             </div>
+
             <p class="submitOnline">
               <!-- edit here if you want to change the information about online submission, e.g. add privacy policy information -->
               <!--
@@ -295,14 +293,17 @@
                 Please submit the results to our server. Entering a name or email address is not mandatory but can ease our analysis of the data in case you decide to participate in following instances of this study. <br /> -->
                 <!-- Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br /> -->
                 <!--You can also leave a comment.-->
-              </span>
+              <!--</span>-->
               <span class="textDE">
-                Bitte sende die Resultate nun an unseren Server. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber die anschließende Analyse erleichtern, falls Du beschließen solltest an zukünftigen Folgedurchläufen der Studie teilzunehmen. <br />
+                Die Angabe einer Email ist nicht zwingend notwendig, ermöglicht es uns aber Dich für Folgedurchläufe dieser Studie unverbindlich einzuladen. <br />
+                Diese gesamte Studie setzt sich nämlich am Ende aus diesem und drei weiteren (sehr ähnlichen) Abschnitten zusammen und ist dann beendet. <br />
+                Im Anschluss werden natürlich sämtliche angegebenen Email-Adressen gelöscht, so dass du nicht mehr als maximal drei Einladungen erhalten würdest. <br />
+              </span>
+                <!-- Bitte sende die Resultate nun an unseren Server. Die Angabe einer Email ist nicht zwingend notwendig, können aber die anschließende Analyse erleichtern, falls Du beschließen solltest an zukünftigen Folgedurchläufen der Studie teilzunehmen. <br /> -->
                 <!-- Die Angabe von Name oder Email sind nicht zwingend notwendig, ermöglichen es uns aber Dich für möglicherweise aufkommende Nachfragen zu kontaktieren.-->
                 <!-- Du kannst außerdem einen Kommentar hinzufügen. -->
-              </span>
-
             </p>
+
             <p class="submitDownload">
                 <!-- edit here if you want to change the information about online submission, e.g. add privacy policy information -->
                 <!--
@@ -311,35 +312,40 @@
                 -->
                   <!-- Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br /> -->
                   <!--You can also leave a comment.-->
-                </span>
+                <!--</span>-->
                 <span class="textDE">
-                  Bitte downloade nun die Resultate und sende sie uns zu. Die Angabe von Name oder Email sind nicht zwingend notwendig, können aber die anschließende Analyse erleichtern, falls Du beschließen solltest an zukünftigen Folgedurchläufen der Studie teilzunehmen. <br />
+                  Bitte downloade nun die Resultate und sende sie uns zu. <br />
+                  Die Angabe einer Email ist nicht zwingend notwendig, ermöglicht es uns aber Dich für Folgedurchläufe dieser Studie unverbindlich einzuladen. <br />
+                  Diese gesamte Studie setzt sich nämlich am Ende aus diesem und drei weiteren (sehr ähnlichen) Abschnitten zusammen und ist dann beendet. <br />
+                  Im Anschluss werden natürlich sämtliche angegebenen Email-Adressen gelöscht, so dass du nicht mehr als maximal drei Einladungen erhalten würdest. <br />
+                </span>
                   <!-- Die Angabe von Name oder Email sind nicht zwingend notwendig, ermöglichen es uns aber Dich für möglicherweise aufkommende Nachfragen zu kontaktieren.-->
                   <!--Du kannst außerdem einen Kommentar hinzufügen.-->
-                </span>
-
             </p>
+
             <table border=0 style="margin-left: auto;margin-right: auto;">
-            <!-- <tr><td>Name:</td><td><input id="UserName" type="text" size="40" maxlength="40" /></td></tr> -->
-            <tr><td>Email:</td><td><input id="UserEMail" type="text" size="40" maxlength="40" /></td></tr>
-            <tr><td></td><td><textarea id="UserComment" cols="40" rows="4">Dein Kommentar...</textarea></td></tr>
+              <!-- <tr><td>Name:</td><td><input id="UserName" type="text" size="40" maxlength="40" /></td></tr> -->
+              <tr><td>Email:</td><td><input id="UserEMail" type="text" size="40" maxlength="40" /></td></tr>
+              <tr><td></td><td><textarea id="UserComment" cols="40" rows="4">Dein Kommentar...</textarea></td></tr>
             </table>
             <br />
             <!-- <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">Submit</button> -->
-            <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">
+            <button id="BtnSubmitData" class="submitOnline" onclick="testHandle.SubmitTestResults();">Senden
               <!--<span class="textEN">Submit</span>-->
-              <span class="textDE">Senden</span>
+              <!--<span class="textDE">Senden</span>-->
             </button>
-            <button id="BtnDownloadData" class="submitDownload" onclick="testHandle.DownloadTestResults();">
+            <button id="BtnDownloadData" class="submitDownload" onclick="testHandle.DownloadTestResults();">Herunterladen
               <!--<span class="textEN">Download</span>-->
-              <span class="textDE">Herunterladen</span>
+              <!--<span class="textDE">Herunterladen</span>-->
             </button>
             <p class="submitEmail error">
                 <!-- edit here if you want to change the information about email submission, e.g. add privacy policy information -->
                 <!--
                 <span class="textEN">Results should be sent to <span class="supervisorEmail"></span></span>
               -->
-                <span class="textDE">Resultate sollen gesendet werden an <span class="supervisorEmail"></span></span>
+                <span class="textDE">Resultate sollen gesendet werden an
+                  <span class="supervisorEmail"></span>
+                </span>
             </p>
         </div>
 
@@ -373,6 +379,7 @@
           <!--<span class="textEN">Previous Test</span>-->
           <span class="textDE">Voriger Vergleich</span>
         </button>
+
     </div>
 
     <!-- playback control -->
@@ -390,13 +397,20 @@
         <div>
             <input id="ChkLoopAudio" type="checkbox" value="Loop" /><label for="ChkLoopAudio">
               <!--<span class='textEN'>Loop</span>-->
-              <span class='textDE'>endlos</span>
+              <span class='textDE'>Endloses Wiederholen</span>
             </label>
             <input id="ChkAutoReturn" type="checkbox" value="Auto Return" /><label for="ChkAutoReturn">
               <!--<span class='textEN'>Auto Return</span>-->
               <span class='textDE'>Automatisches Abspielen</span>
             </label>
         </div>
+
+        <!--<div id="TestEnding">-->
+          <button id="BtnEndTest">
+            <!--<span class="textEN">Test End</span>-->
+            <span class="textDE">Test Ende</span>
+          </button>
+        <!--</div>-->
 
         <div id="Volume">
             <!--<span class="textEN">Volume</span>-->

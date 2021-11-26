@@ -502,6 +502,8 @@ $.extend({ alert: function (message, title) {
         $('#ProgressBar').progressbar();
         $('#BtnNextTest').button();
         $('#BtnNextTest').on('click', $.proxy(handlerObject.nextTest, handlerObject));
+        $('#BtnEndTest').button();
+        $('#BtnEndTest').on('click', $.proxy(handlerObject.endTest, handlerObject));
         $('#BtnPrevTest').button();
         $('#BtnPrevTest').on('click', $.proxy(handlerObject.prevTest, handlerObject));
         $('#BtnStartTest').button();
@@ -644,17 +646,15 @@ $.extend({ alert: function (message, title) {
         var stopTime = new Date().getTime();
         this.TestState.Runtime[this.TestState.TestSequence[this.TestState.CurrentTest]] += stopTime - this.TestState.startTime;
 
-        // send current state of results [Christian]
-        //$('#ResultsBox').html(this.formatResults());
-        //$("#SubmitBox > .submitDownload").show();
-
         // go to next test
-        if (this.TestConfig.UploadIntermediates && this.TestConfig.EnableOnlineSubmission) {
-            this.formatResults();
-            this.SubmitTestResults();
-        }
         if (this.TestState.CurrentTest<this.TestState.TestSequence.length-1) {
-            this.TestState.CurrentTest = this.TestState.CurrentTest+1;
+          // submit current testResults right before starting the next test
+          if (this.TestConfig.UploadIntermediates && this.TestConfig.EnableOnlineSubmission) {
+              //this.formatResults();  [Usesell?!]
+              this.SubmitTestResultsIntermediate();
+          }
+          // start the next test
+          this.TestState.CurrentTest = this.TestState.CurrentTest+1;
         	this.runTest(this.TestState.TestSequence[this.TestState.CurrentTest]);
         } else {
             // if previous test was last one, ask before loading final page and then exit test
@@ -695,6 +695,63 @@ $.extend({ alert: function (message, title) {
             }
             return;
         }
+    }
+
+    // ###################################################################
+    ListeningTest.prototype.endTest = function() {
+
+        this.pauseAllAudios();
+
+        // save ratings from last test
+        if (this.saveRatings(this.TestState.TestSequence[this.TestState.CurrentTest])==false)
+            return;
+
+        // stop time measurement
+        var stopTime = new Date().getTime();
+        this.TestState.Runtime[this.TestState.TestSequence[this.TestState.CurrentTest]] += stopTime - this.TestState.startTime;
+
+        //if (this.TestConfig.UploadIntermediates && this.TestConfig.EnableOnlineSubmission) {
+        //    // submit current testResults
+        //    this.formatResults();
+        //    this.SubmitTestResults();
+        //}
+
+        //if (confirm('Do you want to finish testing now?')) {
+        if (confirm('Möchtest du den Test nun abschließen?')) {
+
+            $('#TableContainer').hide();
+            $('#PlayerControls').hide();
+            $('#TestControls').hide();
+            $('#AudioPool').hide();
+            $('#TestEnd').show();
+
+            $('#ResultsBox').html(this.formatResults());
+            if (this.TestConfig.ShowResults)
+                $("#ResultsBox").show();
+            else
+                $("#ResultsBox").hide();
+
+            $("#SubmitBox").show();
+
+            $("#SubmitBox > .submitEmail").hide();
+            if (this.TestConfig.EnableOnlineSubmission) {
+                $("#SubmitBox > .submitOnline").show();
+                $("#SubmitBox > .submitDownload").hide();
+            } else {
+                $("#SubmitBox > .submitOnline").hide();
+                if (this.TestConfig.SupervisorContact) {
+                    $("#SubmitBox > .submitEmail").show();
+                    $(".supervisorEmail").html(this.TestConfig.SupervisorContact);
+                }
+                if (this.browserFeatures.webAPIs['Blob']) {
+                    $("#SubmitBox > .submitDownload").show();
+                } else {
+                    $("#SubmitBox > .submitDownload").hide();
+                    $("#ResultsBox").show();
+                }
+            }
+        }
+        return;
     }
 
     // ###################################################################
@@ -898,8 +955,7 @@ $.extend({ alert: function (message, title) {
     }
 
     // ###################################################################
-    // submit test results to server
-    //ListeningTest.prototype.SubmitTestResults = function () {
+    // get UserObj with metadate for submition
     ListeningTest.prototype.getUserObj = function () {
 
         var UserObj = new Object();
@@ -917,83 +973,85 @@ $.extend({ alert: function (message, title) {
         UserObj.SeqNum = this.TestState.SeqNum;
         this.TestState.SeqNum++;
         return UserObj;
-   }
+    }
 
-        //var EvalResults = this.TestState.EvalResults;
-        //EvalResults.push(UserObj)
-        // ###################################################################
-        // submit test results to server
-        ListeningTest.prototype.SubmitTestResults = function () {
+      // ###################################################################
+      // submit test results to server
+      ListeningTest.prototype.SubmitTestResults = function () {
 
-            var UserObj = this.getUserObj();
-            var EvalResults = this.TestState.EvalResults.slice(0);
-            EvalResults.push(UserObj);
+          var UserObj = this.getUserObj();
+          var EvalResults = this.TestState.EvalResults.slice(0);
+          EvalResults.push(UserObj);
 
-        var testHandle = this;
-        $.ajax({
-                    type: "POST",
-                    timeout: 5000,
-                    url: testHandle.TestConfig.BeaqleServiceURL,
-                    data: {'testresults':JSON.stringify(EvalResults), 'username':UserObj.UserName},
-                    dataType: 'json'})
-            .done( function (response){
-                    if (response.error==false) {
-                        //$('#SubmitBox').html("Your submission was successful.<br/><br/>");
-                        $('#SubmitBox').html("Deine Bewertungen wurden erolgreich abgeschickt.<br/><br/>");
-                        testHandle.TestState.TestIsRunning = 0;
-                    } else {
-                        $('#SubmitError').show();
-                        $('#SubmitError > #ErrorCode').html(response.message);
-                        $("#SubmitBox > .submitOnline").hide();
-                        if (this.TestConfig.SupervisorContact) {
-                            $("#SubmitBox > .submitEmail").show();
-                            $(".supervisorEmail").html(this.TestConfig.SupervisorContact);
-                        }
-                        if (testHandle.browserFeatures.webAPIs['Blob']) {
-                            $("#SubmitBox > .submitDownload").show();
-                        } else {
-                            $("#SubmitBox > .submitDownload").hide();
-                            $("#ResultsBox").show();
-                        }
-                        $('#SubmitData').button('option',{ icons: { primary: 'ui-icon-alert' }});
-                    }
-                })
-            .fail (function (xhr, ajaxOptions, thrownError){
-                    $('#SubmitError').show();
-                    $('#SubmitError > #ErrorCode').html(xhr.status);
-                    $("#SubmitBox > .submitOnline").hide();
-                    if (this.TestConfig.SupervisorContact) {
-                        $("#SubmitBox > .submitEmail").show();
-                        $(".supervisorEmail").html(this.TestConfig.SupervisorContact);
-                    }
-                    if (testHandle.browserFeatures.webAPIs['Blob']) {
-                        $("#SubmitBox > .submitDownload").show();
-                    } else {
-                        $("#SubmitBox > .submitDownload").hide();
-                        $("#ResultsBox").show();
-                    }
-                });
-        $('#BtnSubmitData').button('option',{ icons: { primary: 'load-indicator' }});
+      var testHandle = this;
+      $.ajax({
+                  type: "POST",
+                  timeout: 5000,
+                  url: testHandle.TestConfig.BeaqleServiceURL,
+                  data: {'testresults':JSON.stringify(EvalResults), 'username':UserObj.UserName},
+                  dataType: 'json'})
+          .done( function (response){
+                  if (response.error==false) {
+                      //$('#SubmitBox').html("Your submission was successful.<br/><br/>");
+                      $('#SubmitBox').html("Deine Bewertungen wurden erolgreich abgeschickt.<br/><br/>");
+                      testHandle.TestState.TestIsRunning = 0;
+                  } else {
+                      $('#SubmitError').show();
+                      $('#SubmitError > #ErrorCode').html(response.message);
+                      $("#SubmitBox > .submitOnline").hide();
+                      if (this.TestConfig.SupervisorContact) {
+                          $("#SubmitBox > .submitEmail").show();
+                          $(".supervisorEmail").html(this.TestConfig.SupervisorContact);
+                      }
+                      if (testHandle.browserFeatures.webAPIs['Blob']) {
+                          $("#SubmitBox > .submitDownload").show();
+                      } else {
+                          $("#SubmitBox > .submitDownload").hide();
+                          $("#ResultsBox").show();
+                      }
+                      $('#SubmitData').button('option',{ icons: { primary: 'ui-icon-alert' }});
+                  }
+              })
+          .fail (function (xhr, ajaxOptions, thrownError){
+                  $('#SubmitError').show();
+                  $('#SubmitError > #ErrorCode').html(xhr.status);
+                  $("#SubmitBox > .submitOnline").hide();
+                  if (this.TestConfig.SupervisorContact) {
+                      $("#SubmitBox > .submitEmail").show();
+                      $(".supervisorEmail").html(this.TestConfig.SupervisorContact);
+                  }
+                  if (testHandle.browserFeatures.webAPIs['Blob']) {
+                      $("#SubmitBox > .submitDownload").show();
+                  } else {
+                      $("#SubmitBox > .submitDownload").hide();
+                      $("#ResultsBox").show();
+                  }
+              });
+      $('#BtnSubmitData').button('option',{ icons: { primary: 'load-indicator' }});
+    }
 
+    // ###################################################################
+    // submit test results to server
+    ListeningTest.prototype.SubmitTestResultsIntermediate = function () {
+
+        var UserObj = this.getUserObj();
+        var EvalResults = this.TestState.EvalResults.slice(0);
+        EvalResults.push(UserObj);
+
+    var testHandle = this;
+    $.ajax({
+                type: "POST",
+                timeout: 5000,
+                url: testHandle.TestConfig.BeaqleServiceURL,
+                data: {'testresults':JSON.stringify(EvalResults), 'username':UserObj.UserName},
+                dataType: 'json'});
+    //$('#BtnSubmitData').button('option',{ icons: { primary: 'load-indicator' }});
     }
 
     // ###################################################################
     // download test results to user computer
     ListeningTest.prototype.DownloadTestResults = function () {
 
-        //var UserObj = new Object();
-        //UserObj.UserName = $('#UserName').val();
-        //UserObj.UserEmail = $('#UserEMail').val();
-        //UserObj.UserComment = $('#UserComment').val();
-        //UserObj.SingleComments = this.TestState.single_comment;
-        //UserObj.UserAge = $('#UserAge').val();
-        //UserObj.UserSex = $('#UserSex').val();
-        //UserObj.UserInterest = $('#UserInterest').val();
-        //UserObj.UserLanguage = $('#UserLanguage').val();
-        //UserObj.UserEyesight = $('#UserEyesight').val();
-
-        //var EvalResults = this.TestState.EvalResults;
-        //EvalResults.push(UserObj)
         var UserObj = this.getUserObj();
         var EvalResults = this.TestState.EvalResults.slice(0);
         EvalResults.push(UserObj);
@@ -1257,10 +1315,6 @@ MushraTest.prototype.formatResults = function () {
 
     var resultstring = "";
 
-
-    var numCorrect = 0;
-    var numWrong   = 0;
-
     // evaluate single tests
     //for (var i = 0; i < this.TestConfig.Testsets.length; i++) {
     //  if (this.TestState.FileMappings[i]) {
@@ -1272,46 +1326,45 @@ MushraTest.prototype.formatResults = function () {
     //        this.TestState.EvalResults[i].filename  = new Object();
 
     for (var i = 0; i < this.TestConfig.Testsets.length; i++) {
-    if (this.TestState.FileMappings[i]) {
-        this.TestState.EvalResults[i]           = new Object();
-        this.TestState.EvalResults[i].TestID    = this.TestConfig.Testsets[i].TestID;
-        if (this.TestState.TestSequence.indexOf(i)>=0) {
-            this.TestState.EvalResults[i].Runtime   = this.TestState.Runtime[i];
-            this.TestState.EvalResults[i].rating    = new Object();
-            this.TestState.EvalResults[i].filename  = new Object();
+      if (this.TestState.FileMappings[i]) {
+          this.TestState.EvalResults[i]           = new Object();
+          this.TestState.EvalResults[i].TestID    = this.TestConfig.Testsets[i].TestID;
+          if (this.TestState.TestSequence.indexOf(i)>=0) {
+              this.TestState.EvalResults[i].Runtime   = this.TestState.Runtime[i];
+              this.TestState.EvalResults[i].rating    = new Object();
+              this.TestState.EvalResults[i].filename  = new Object();
 
-            resultstring += "<p><b>"+this.TestConfig.Testsets[i].Name + "</b> ("+this.TestConfig.Testsets[i].TestID+"), Runtime:" + this.TestState.Runtime[i]/1000 + "sec </p>\n";
+              resultstring += "<p><b>"+this.TestConfig.Testsets[i].Name + "</b> ("+this.TestConfig.Testsets[i].TestID+"), Runtime:" + this.TestState.Runtime[i]/1000 + "sec </p>\n";
 
-            var tab = document.createElement('table');
-            var row;
-            var cell;
+              var tab = document.createElement('table');
+              var row;
+              var cell;
 
-            row  = tab.insertRow(-1);
-            cell = row.insertCell(-1);
-            cell.innerHTML = "Filename";
-            cell = row.insertCell(-1);
-            cell.innerHTML = "Rating";
+              row  = tab.insertRow(-1);
+              cell = row.insertCell(-1);
+              cell.innerHTML = "Filename";
+              cell = row.insertCell(-1);
+              cell.innerHTML = "Rating";
 
-            var fileArr    = this.TestConfig.Testsets[i].Files;
-            var testResult = this.TestState.EvalResults[i];
+              var fileArr    = this.TestConfig.Testsets[i].Files;
+              var testResult = this.TestState.EvalResults[i];
 
 
-            $.each(this.TestState.Ratings[i], function(fileID, rating) {
-                row  = tab.insertRow(-1);
-                cell = row.insertCell(-1);
-                cell.innerHTML = fileArr[fileID];
-                cell = row.insertCell(-1);
-                cell.innerHTML = rating;
+              $.each(this.TestState.Ratings[i], function(fileID, rating) {
+                  row  = tab.insertRow(-1);
+                  cell = row.insertCell(-1);
+                  cell.innerHTML = fileArr[fileID];
+                  cell = row.insertCell(-1);
+                  cell.innerHTML = rating;
 
-                testResult.rating[fileID]   = rating;
-                testResult.filename[fileID] = fileArr[fileID];
-            });
+                  testResult.rating[fileID]   = rating;
+                  testResult.filename[fileID] = fileArr[fileID];
+              });
 
-            resultstring += tab.outerHTML + "\n";
+              resultstring += tab.outerHTML + "\n";
+            }
           }
         }
-      }
-
     return resultstring;
 }
 

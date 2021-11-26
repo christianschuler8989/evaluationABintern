@@ -154,6 +154,10 @@ body {
     float: right;
 }
 
+#BtnEndTest {
+    float: right;
+}
+
 #Volume{
     font-size: 70%;
     text-align:center;
