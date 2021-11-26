@@ -968,6 +968,7 @@ $.extend({ alert: function (message, title) {
         UserObj.UserInterest = $('#UserInterest').val();
         UserObj.UserLanguage = $('#UserLanguage').val();
         UserObj.UserEyesight = $('#UserEyesight').val();
+        UserObj.UserHearing = $('#UserHearing').val();
 
         UserObj.SessionID = this.TestState.SessionID;
         UserObj.SeqNum = this.TestState.SeqNum;
