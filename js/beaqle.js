@@ -646,15 +646,16 @@ $.extend({ alert: function (message, title) {
         var stopTime = new Date().getTime();
         this.TestState.Runtime[this.TestState.TestSequence[this.TestState.CurrentTest]] += stopTime - this.TestState.startTime;
 
+        // submit current testResults right before starting the next test
+        if (this.TestConfig.UploadIntermediates && this.TestConfig.EnableOnlineSubmission) {
+            this.formatResults();
+            this.SubmitTestResultsIntermediate();
+        }
+
         // go to next test
         if (this.TestState.CurrentTest<this.TestState.TestSequence.length-1) {
-          // submit current testResults right before starting the next test
-          if (this.TestConfig.UploadIntermediates && this.TestConfig.EnableOnlineSubmission) {
-              //this.formatResults();  [Usesell?!]
-              this.SubmitTestResultsIntermediate();
-          }
-          // start the next test
           this.TestState.CurrentTest = this.TestState.CurrentTest+1;
+          // start the next test
         	this.runTest(this.TestState.TestSequence[this.TestState.CurrentTest]);
         } else {
             // if previous test was last one, ask before loading final page and then exit test
@@ -1039,15 +1040,15 @@ $.extend({ alert: function (message, title) {
         var EvalResults = this.TestState.EvalResults.slice(0);
         EvalResults.push(UserObj);
 
-    var testHandle = this;
-    $.ajax({
-                type: "POST",
-                timeout: 5000,
-                url: testHandle.TestConfig.BeaqleServiceURL,
-                data: {'testresults':JSON.stringify(EvalResults), 'username':UserObj.UserName},
-                dataType: 'json'});
-    //$('#BtnSubmitData').button('option',{ icons: { primary: 'load-indicator' }});
-    }
+        var testHandle = this;
+        $.ajax({
+                    type: "POST",
+                    timeout: 5000,
+                    url: testHandle.TestConfig.BeaqleServiceURL,
+                    data: {'testresults':JSON.stringify(EvalResults), 'username':UserObj.UserName},
+                    dataType: 'json'});
+        //$('#BtnSubmitData').button('option',{ icons: { primary: 'load-indicator' }});
+        }
 
     // ###################################################################
     // download test results to user computer
