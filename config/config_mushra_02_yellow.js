@@ -22,17 +22,17 @@ var TestConfig = {
   "Testsets": [
     // "GREEN" testsets that serve as anchors
     {
-      "Name": "055",
-      "TestID": "tempo_all_aL",
-      "Files":
-      {
-        "Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
-        "1": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
-        "2": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
-        "3": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
-        "4": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
-        "5": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
-      }
+     	"Name": "055",
+     	"TestID": "tempo_all_aL",
+     	"Files":
+    	{
+    		"Reference": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Tempo_a_001_shiftLeft4_0.90cut.mp4",
+    		"2": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
+    		"3": "video/audioMod_2021-01-09_Tempo_w_001_shiftLeft4_0.90cut.mp4",
+    		"4": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
+    		"5": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
+    	}
     },
     {
       "Name": "062",
@@ -235,8 +235,8 @@ var TestConfig = {
      	"TestID": "tempo_all_a_right",
      	"Files":
     	{
-    		"Reference": "video/audioMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
-    		"1": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"Reference": "video/audioMod_2021-01-09_Tempo_p_001_shiftLeft0_0.90cut.mp4",
+    		"1": "video/audioMod_2021-01-09_Tempo_a_001_shiftRight4_0.90cut.mp4",
     		"2": "video/mixMod_2021-01-09_Tempo_p_001_shiftLeft4_0.90cut.mp4",
     		"3": "video/multiMod_2021-01-09_Tempo_p_001_shiftRight4_0.90cut.mp4",
     		"4": "video/visualMod_2021-01-09_Tempo_a_001_shiftLeft4_cut.mp4",
