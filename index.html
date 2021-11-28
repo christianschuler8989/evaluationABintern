@@ -99,10 +99,10 @@
         <img src="img/ajax-loader.gif"/> &nbsp;&nbsp;&nbsp; Loading...
     </div>
 
-    <!-- introduction before the test starts -->
+    <!-- introduction before the instructions -->
     <div id="TestIntroduction" class="commonBox">
 
-        <!-- edit here if you want to change the welcome message  and instructions -->
+        <!-- edit here if you want to change the welcome message -->
         <div style="text-align:left">
           <!--
           <span class="textEN">
@@ -111,11 +111,11 @@
             Please take your time and carefully rate every item. <br />
           </span>
           -->
-          <span class="textDE" style="font-size:12px;">
-            <strong>Halli und Hallo</strong>, ich bin Christian Schuler und schreibe meine Bachelorarbeit an der Universität Hamburg am Fachbereich Informatik. <br />
-            Vielen Dank für Dein Interesse an dieser Studie! Im Folgenden geht es um die Untersuchung von Lippensynchronität. <br />
-            Dieser Durchlauf der Studie ist auf <strong>etwa 10 Minuten</strong> ausgelegt. Demnächst folgen noch bis zu drei ähnliche Durchläufe wie dieser. <br />
-            Bei Fragen zu dieser Studie schreib mir einfach eine e-Mail an christian.schuler@studium.uni-hamburg.de.
+          <span class="textDE"style="font-size:16px;"> <!--<span class="textDE" style="font-size:12px;"> -->
+            <strong>Halli und Hallo</strong>, ich bin Christian und schreibe meine Bachelorarbeit an der Universität Hamburg. <br />
+            Vielen Dank für Dein Interesse an dieser Studie! Im Folgenden geht es um Video-Lippensynchronität. <br />
+            Dieser Durchlauf der Studie ist auf <strong>etwa 10 Minuten</strong> ausgelegt und einer von vieren. <br />
+            Bei Fragen zu dieser Studie schreib mir diese gerne an: christian.schuler@studium.uni-hamburg.de.
             <!--Vielen Dank für Dein Interesse an dieser Studienteilnahme.
             Die Gesamtdauer sollte ungefähr 10 Minuten betragen.
             Bitte nimm Dir die Zeit jeden Testgegenstand genau zu bewerten. <br />-->
@@ -173,6 +173,8 @@
             </tr>
           </table>
 
+          <br />
+
           <label for="UserInterest">
             <!--<span class="textEN">Interest or field of study:</span>-->
             <span class="textDE">Interesse oder Studienfach:</span>
@@ -189,19 +191,25 @@
           </select>
 
           <br />
+          <br />
 
           <label for="UserEyesight">
             <!--<span class="textEN">Impairement of eyesight (if applicable):</span>-->
-            <span class="textDE">Einschränkung der Sehkraft (falls vorliegend):</span>
+            <span class="textDE">Einschränkung der Sehkraft (z.B. "Brille weil kurzsichtig" oder "Glasauge links"):</span>
           </label>
           <input id="UserEyesight" type="text" size="80" maxlength="80" />
 
           <br />
+          <br />
+
           <label for="UserHearing">
             <!--<span class="textEN">Impairement of hearing (if applicable):</span>-->
-            <span class="textDE">Einschränkung der Höhrkraft (falls vorliegend):</span>
+            <span class="textDE">Einschränkung der Höhrkraft (z.B. "Ja, aber benutze ein Höhrgerät" oder "Häh?"):</span>
           </label>
           <input id="UserHearing" type="text" size="80" maxlength="80" />
+
+          <br />
+          <br />
 
           <table>
             <tr>
@@ -243,78 +251,8 @@
               </td>
             </tr>
           </table>
-
-
-
-
-
           <br />
-          <!--<span class="textEN">Instructions:</span>-->
-          <span class="textDE"><strong>Anleitung:</strong></span>
-          <ul>
-            <li>
-              <!--
-              <span class="textEN">Please take the test in a low-noise environment, ideally with high quality head-phones.</span>
-              -->
-              <span class="textDE">Bitte nimm die Bewertungen in einer <strong>ruhigen Umgebung</strong> vor, idealerweise mit guten Kopfhörern.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">You should listen to the reference and all the test conditions by clicking on the respective buttons.</span>
-              -->
-              <span class="textDE">Schaue Dir in jedem Test alle Videos durch <strong>Anklicken der entsptechenden Schaltknöpfe</strong> an.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">Rate the quality of the test items only compared to the reference on top.</span>
-              -->
-              <span class="textDE">Oben findet sich immer das <strong>unveränderte Referenzvideo</strong> und darunter die Testkonditionen.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">Use the slider for each signal to indicate your opinion of its quality.</span>
-              -->
-              <span class="textDE"><strong>Nutze die Schieberegler</strong> der jeweiligen Videos, um deine Meinung über ihre Qualität anzugeben.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">Try to evaluate the lip synchrony and put less focus on the overall video-quality.</span>
-              -->
-              <span class="textDE">Versuch die <strong>Lippensynchronität zu bewerten</strong> und nicht so sehr die allgemeine Videoqualität.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">You may listen to the signals in any order, any number of times.</span>
-              -->
-              <span class="textDE">Du kannst die Videos in beliebiger Reihenfolge und wiederholt anschauen.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">Do not be worried: it sometimes may be difficult to detect the differences.</span>
-              -->
-              <span class="textDE">Sei unbesorgt, falls es dir einige Male schwer fallen sollte, Unterschiede zu erkennen.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">At the bottom of the test-window you will be able to control the area of the video to be looped if you want to take a closer look.</span>
-              -->
-              <span class="textDE">Am unteren Ende des Fensters wirst du für das laufende Video genau einstellen können, welcher Abschnitt abgespielt werden soll, um nicht immer das ganze Video wiederholen zu müssen.</span>
-            </li>
-            <li>
-              <!--
-              <span class="textEN">
-                This website sends your indicated preferences to our server where they will be saved. <br />
-                This makes it possible for you to stop at any time without data getting lost. <br />
-                We are delighted about every finished evaluation, even after the 10 minute mark- but you should be careful not to overstrain yourself and take a break or simply stop the test after some time according to your own judgement.
-              </span>
-              -->
-              <span class="textDE">
-                Diese Webseite sendet Deine Präferenzurteile zu unserem Server wo sie gespeichert werden. <br />
-                Dies ermöglicht es, dass Du <strong>jederzeit aufhören kannst</strong>, ohne das Daten verloren gehen. <br />
-                Zwar freue ich mich über jeden, auch nach den 10 Minuten, absolvierten Vergleich, jedoch solltest Du dich <strong>nicht überanstrengen und rechtzeitig eine Pause einlegen</strong> oder auf <strong>Test Ende</strong> klicken.
-              </span>
-            </li>
-          </ul>
+
           <span class="textDE"><strong>Datenschutzerklärung:</strong></span>
           <span class="textDE" style="font-size:9px;">
             Die Angabe der im Rahmen dieser Studie abgefragten persönlichen Daten, wie etwa Altersgruppe oder Geschlecht, sind freiwillig.
@@ -323,11 +261,85 @@
             Die Daten werden nicht an Dritte weitergegeben und Du hast jederzeit ein Recht auf Löschung Deiner Daten.
             Die Teilnahme an dieser Studie ist freiwillig und kann bei Bedarf jederzeit abgebrochen werden.
           </span>
-
         </div>
 
         <!-- this button starts the first test -->
-        <button id="BtnStartTest" onclick="testHandle.startTests();">Start!</button>
+        <button id="BtnInstruction" onclick="testHandle.showInstruction();">Weiter</button>
+    </div>
+
+    <!-- instructions before the test starts -->
+    <div id="TestInstruction" class="commonBox">
+
+      <!-- edit here if you want to change the instructions -->
+      <div style="text-align:left">
+    <!--<span class="textEN">Instructions:</span>-->
+      <span class="textDE"><strong>Anleitung:</strong></span>
+      <ul>
+        <li>
+          <!--<span class="textEN">Try to evaluate the lip synchrony and put less focus on the overall video-quality.</span>-->
+          <span class="textDE">Versuch die <strong>Lippensynchronität zu bewerten</strong> und nicht so sehr die allgemeine Videoqualität.</span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">You should listen to the reference and all the test conditions by clicking on the respective buttons.</span>-->
+          <span class="textDE">Schaue Dir alle Videos durch <strong>Anklicken der entsptechenden Schaltknöpfe</strong> an. <br/ > <text style="font-size:10px;">Die Steuerung innerhalb des Players funktioniert leider nicht problemfrei.</style></span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">Use the slider for each signal to indicate your opinion of its quality.</span>-->
+          <span class="textDE"><strong>Nutze die Schieberegler</strong> der jeweiligen Videos, um deine Meinung über ihre Qualität anzugeben.</span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">Rate the quality of the test items only compared to the reference on top.</span>-->
+          <span class="textDE">Oben findet sich immer das <strong>unveränderte Referenzvideo</strong> und darunter die Testkonditionen.</span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">You may listen to the signals in any order, any number of times.</span>-->
+          <span class="textDE">Du kannst die Videos in beliebiger Reihenfolge und wiederholt anschauen.</span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">Do not be worried: it sometimes may be difficult to detect the differences.</span>-->
+          <span class="textDE">Sei unbesorgt, falls es dir einige Male schwer fallen sollte, Unterschiede zu erkennen.</span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">At the bottom of the test-window you will be able to control the area of the video to be looped if you want to take a closer look.</span>-->
+          <span class="textDE">Am unteren Ende des Fensters wirst du für das laufende Video genau einstellen können, welcher Abschnitt abgespielt werden soll, um nicht immer das ganze Video wiederholen zu müssen.</span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">
+            This website sends your indicated preferences to our server where they will be saved. <br />
+            This makes it possible for you to stop at any time without data getting lost. <br />
+            We are delighted about every finished evaluation, even after the 10 minute mark- but you should be careful not to overstrain yourself and take a break or simply stop the test after some time according to your own judgement.
+          </span>-->
+          <span class="textDE">
+            Diese Webseite sendet Deine Präferenzurteile zu unserem Server wo sie gespeichert werden. <br />
+            Dies ermöglicht es, dass Du <strong>jederzeit aufhören kannst</strong>, ohne das Daten verloren gehen. <br />
+            Zwar freue ich mich über jeden, auch nach den 10 Minuten, absolvierten Vergleich, jedoch solltest Du dich <strong>nicht überanstrengen und rechtzeitig eine Pause einlegen</strong> oder auf <strong>Test Ende</strong> klicken.
+          </span>
+        </li>
+        <br />
+
+        <li>
+          <!--<span class="textEN">Please take the test in a low-noise environment, ideally with high quality head-phones.</span>-->
+          <span class="textDE">Bitte nimm die Bewertungen in einer <strong>ruhigen Umgebung</strong> vor, idealerweise mit guten Kopfhörern.</span>
+        </li>
+      </ul>
+      </div>
+
+      <!-- this button starts the first test -->
+      <button id="BtnStartTest" onclick="testHandle.startTests();">Start!</button>
     </div>
 
     <!-- final text after all tests have passed -->
@@ -349,12 +361,12 @@
 
             <p class="submitOnline">
               <!-- edit here if you want to change the information about online submission, e.g. add privacy policy information -->
-              <!--
-              <span class="textEN">
-                Please submit the results to our server. Entering a name or email address is not mandatory but can ease our analysis of the data in case you decide to participate in following instances of this study. <br /> -->
-                <!-- Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br /> -->
-                <!--You can also leave a comment.-->
-              <!--</span>-->
+
+              <!--<span class="textEN">
+                Please submit the results to our server. Entering a name or email address is not mandatory but can ease our analysis of the data in case you decide to participate in following instances of this study. <br />
+                Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br />
+                You can also leave a comment.
+              </span>-->
               <span class="textDE">
                 <!-- Die Angabe einer Email ist nicht zwingend notwendig, ermöglicht es uns aber Dich für Folgedurchläufe dieser Studie unverbindlich einzuladen. <br />
                 Diese gesamte Studie setzt sich nämlich am Ende aus diesem und drei weiteren (sehr ähnlichen) Abschnitten zusammen und ist dann beendet. <br />
@@ -367,13 +379,11 @@
 
             <p class="submitDownload">
                 <!-- edit here if you want to change the information about online submission, e.g. add privacy policy information -->
-                <!--
-                <span class="textEN">
+                <!--<span class="textEN">
                   Please download and save the results to send them to us. Entering a name or email address is not mandatory but can ease our analysis of the data in case you decide to participate in following instances of this study. <br />
-                -->
-                  <!-- Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br /> -->
-                  <!--You can also leave a comment.-->
-                <!--</span>-->
+                  Entering a name or email address is not mandatory but it would help us to contact you if we have further questions. <br />
+                  You can also leave a comment.
+                </span>-->
                 <span class="textDE">
                   Bitte downloade nun die Resultate und sende sie uns zu. <br />
                   Die Angabe einer Email ist nicht zwingend notwendig, ermöglicht es uns aber Dich für Folgedurchläufe dieser Studie unverbindlich einzuladen. <br />
@@ -401,9 +411,7 @@
             </button>
             <p class="submitEmail error">
                 <!-- edit here if you want to change the information about email submission, e.g. add privacy policy information -->
-                <!--
-                <span class="textEN">Results should be sent to <span class="supervisorEmail"></span></span>
-              -->
+                <!--<span class="textEN">Results should be sent to <span class="supervisorEmail"></span></span>-->
                 <span class="textDE">Resultate sollen gesendet werden an
                   <span class="supervisorEmail"></span>
                 </span>

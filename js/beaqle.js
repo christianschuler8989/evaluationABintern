@@ -500,6 +500,7 @@ $.extend({ alert: function (message, title) {
         $('#ChkAutoReturn').on('change', $.proxy(handlerObject.toggleAutoReturn, handlerObject));
 
         $('#ProgressBar').progressbar();
+        $('#BtnInstruction').button();
         $('#BtnNextTest').button();
         $('#BtnNextTest').on('click', $.proxy(handlerObject.nextTest, handlerObject));
         $('#BtnEndTest').button();
@@ -794,6 +795,7 @@ $.extend({ alert: function (message, title) {
 
         // hide everything instead of load animation
         $('#TestIntroduction').hide();
+        $('#TestInstruction').hide();
         $('#TestControls').hide();
         $('#TableContainer').hide();
         $('#PlayerControls').hide();
@@ -818,6 +820,28 @@ $.extend({ alert: function (message, title) {
         if (typeof this.TestState.Ratings[TestIdx] !== 'undefined') this.readRatings(TestIdx);
 
         this.TestState.startTime = new Date().getTime();
+
+    }
+
+    // ###################################################################
+    // prepares display for instructions
+    ListeningTest.prototype.showInstruction = function() {
+
+
+      // [ YOU ARE HERE ]
+        // show instruction div
+        $('#TestTitle').html(this.TestConfig.TestName);
+        $('#TestIntroduction').hide();
+        $('#TestInstruction').show();
+
+        //this.pauseAllAudios();
+
+        // hide everything instead of load animation
+        //$('#TestIntroduction').hide();
+        //$('#TestControls').hide();
+        //$('#TableContainer').hide();
+        //$('#PlayerControls').hide();
+        //$('#LoadOverlay').hide();
 
     }
 
