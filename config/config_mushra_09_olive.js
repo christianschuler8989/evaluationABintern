@@ -53,7 +53,7 @@ var TestConfig = {
      	"TestID": "anfang_a_vL_mid",
      	"Files":
     	{
-    		"Reference": "video/audioMod_2021-01-09_Anfang_a_001_shiftLeft0_0.90cut.mp4",
+    		"Reference": "video/audioMod_2021-01-09_Anfang_a_002_shiftLeft0_0.90cut.mp4",
     		"1": "video/mixMod_2021-01-09_Anfang_a_002_shiftLeft4_0.90cut.mp4",
     		"2": "video/multiMod_2021-01-09_Anfang_a_002_shiftRight4_0.90cut.mp4",
     		"3": "video/visualMod_2021-01-09_Anfang_a_002_shiftLeft1_cut.mp4",
