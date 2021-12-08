@@ -16,7 +16,7 @@ var TestConfig = {
   "SupervisorContact": "7schuler@informatik.uni-hamburg.de",
   "RandomizeTestOrder": true,
   "AnchorsNumber": 2,         // <= Number of testsets that are always part of a session
-  "MaxTestsPerRun": 25,
+  "MaxTestsPerRun": 26,
   "RequireMaxRating": false,
   "AudioRoot": "",
   "Testsets": [
