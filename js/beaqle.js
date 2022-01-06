@@ -631,6 +631,29 @@ $.extend({ alert: function (message, title) {
           this.TestState.CurrentTest = 0;
         }
 
+        // Base case without mention of any anchors
+        else if (this.TestConfig.AnchorsNumber == -1) {
+          for (var i = 0; i < this.TestConfig.Testsets.length; i++)
+              this.TestState.TestSequence[i] = i;
+
+          // shorten and/or shuffle the sequence
+          if ((this.TestConfig.MaxTestsPerRun > 0) && (this.TestConfig.MaxTestsPerRun < this.TestConfig.Testsets.length)) {
+              this.TestConfig.RandomizeTestOrder = true;
+              this.TestState.TestSequence = shuffleArray(this.TestState.TestSequence);
+              this.TestState.TestSequence = this.TestState.TestSequence.slice(0, this.TestConfig.MaxTestsPerRun);
+          } else if (this.TestConfig.RandomizeTestOrder == true) {
+              this.TestState.TestSequence = shuffleArray(this.TestState.TestSequence);
+          }
+
+          this.TestState.Ratings = Array(this.TestConfig.Testsets.length);
+          this.TestState.Runtime = new Uint32Array(this.TestConfig.Testsets.length);
+          // this.TestState.Runtime.forEach(function(element, index, array){array[index] = 0});
+          this.TestState.startTime = 0;
+
+          // run first test
+          this.TestState.CurrentTest = 0;
+        }
+
     	this.runTest(this.TestState.TestSequence[this.TestState.CurrentTest]);
     }
 
